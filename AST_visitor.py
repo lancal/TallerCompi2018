@@ -50,7 +50,7 @@ class visitor(object):
 
                         if isinstance(p4,nodoDeclaracionVar):
 
-                            print("entro instancia nodoDeclaracion Var")
+                            #print("entro instancia nodoDeclaracion Var")
 
                             self.ast += '\t"' + p3 + str(p2) + '" ' + ' [color="red"] \n'
 
@@ -62,7 +62,7 @@ class visitor(object):
 
                         if isinstance(p4, nodoDeclaracionFun) :
 
-                            print("entro isinstance nodoDeclaracionFun")
+                            #print("entro isinstance nodoDeclaracionFun")
 
                             self.ast += '\t"' + p3 + str(p2) + '" ' + ' [color="red"] \n'
 
@@ -74,7 +74,7 @@ class visitor(object):
 
                         if isinstance(p4, nodoParam) :
 
-                            print("entro instancia nodoParam")
+                            #print("entro instancia nodoParam")
 
                             self.ast += '\t"' + p3 + str(p2) + '" ' + ' [color="red"] \n'
 
@@ -86,7 +86,7 @@ class visitor(object):
 
                         if isinstance(p4, nodoSentenciaComp) :
 
-                            print("entro instancia nodoSentenciaComp")
+                            #print("entro instancia nodoSentenciaComp")
 
                             self.ast += '\t"' + p3 + str(p2) + '" ' + ' [color="red"] \n'
 
@@ -98,7 +98,7 @@ class visitor(object):
 
                         if isinstance(p4, nodoExpresion) :
 
-                            print("entro instancia nodoExpresion")
+                            #print("entro instancia nodoExpresion")
 
                             self.ast += '\t"' + p3 + str(p2) + '" ' + ' [color="red"] \n'
 
@@ -110,7 +110,7 @@ class visitor(object):
 
                         if isinstance(p4, nodoSentenciaSeleccion) :
 
-                            print("entro instancia nodoSentenciaSeleccion")
+                            #print("entro instancia nodoSentenciaSeleccion")
 
                             self.ast += '\t"' + p3 + str(p2) + '" ' + ' [color="red"] \n'
 
@@ -123,7 +123,7 @@ class visitor(object):
 
                         if isinstance(p4, nodoSentenciaIteracion) :
 
-                            print("entro instancia nodoSentenciaIteracion")
+                            #print("entro instancia nodoSentenciaIteracion")
 
                             self.ast += '\t"' + p3 + str(p2) + '" ' + ' [color="red"] \n'
 
@@ -135,7 +135,7 @@ class visitor(object):
 
                         if isinstance(p4, nodoSentenciaRetorno) :
 
-                            print("entro instancia nodoSentenciaRetorno")
+                            #print("entro instancia nodoSentenciaRetorno")
 
                             self.ast += '\t"' + p3 + str(p2) + '" ' + ' [color="red"] \n'
 
@@ -148,7 +148,7 @@ class visitor(object):
 
                         if isinstance(p4, nodoBinarioOP) :
 
-                            print("entro instancia nodoBinarioOP")
+                            #print("entro instancia nodoBinarioOP")
 
                             self.ast += '\t"' + p3 + str(p2) + '" ' + ' [color="red"] \n'
 
@@ -160,7 +160,7 @@ class visitor(object):
 
                         if isinstance(p4, nodoInvocacion) :
 
-                            print("entro instancia nodoInvocacion")
+                           #print("entro instancia nodoInvocacion")
 
                             self.ast += '\t"' + p3 + str(p2) + '" ' + ' [color="red"] \n'
 
@@ -172,30 +172,66 @@ class visitor(object):
 
                     else:
 
-                        self.id_nodo += 1
-                        id_nodo = self.id_nodo
+                        if isinstance(p4,nodoDeclaracionVar) or \
+                            isinstance(p4, nodoDeclaracionFun) or \
+                            isinstance(p4, nodoParam) or \
+                            isinstance(p4, nodoSentenciaComp) or \
+                            isinstance(p4, nodoExpresion) or \
+                            isinstance(p4, nodoSentenciaSeleccion) or \
+                            isinstance(p4, nodoSentenciaIteracion) or \
+                            isinstance(p4, nodoSentenciaRetorno) or \
+                            isinstance(p4, nodoBinarioOP) or \
+                            isinstance(p4, nodoInvocacion) or \
+                            isinstance(p4, nodoNUM) or \
+                            isinstance(p4, nodoVar):
 
-                        self.ast += '\t"' + p3 + str(p2) + '" ' + ' [color="green"] \n'
-                        self.ast += '\t' + str(id_nodo) + ' [color="green"]\n'
+                            self.id_nodo += 1
+                            id_nodo = self.id_nodo
 
-                        self.ast += '\t' + str(id_nodo) + ' [label="' + x + '"]\n'
+                            self.ast += '\t"' + p3 + str(p2) + '" ' + ' [color="green"] \n'
 
-                        self.ast += '\t"' + p3 + str(p2) + '" ' + '-> ' + str(id_nodo) + '\n'
+                            self.ast += '\t' + str(id_nodo) + ' [color="green"]\n'
+
+                            self.ast += '\t' + str(id_nodo) + ' [label="' + x + '"]\n'
+
+                            self.ast += '\t"' + p3 + str(p2) + '" ' + '-> ' + str(id_nodo) + '\n'
+
+                        else:
+
+                            self.id_nodo += 1
+                            id_nodo = self.id_nodo
+
+                            self.ast += '\t"' + p3 + str(p2) + '" ' + ' [color="yellow"] \n'
+
+                            self.ast += '\t' + str(id_nodo) + ' [color="yellow"]\n'
+
+                            self.ast += '\t' + str(id_nodo) + ' [label="' + x + '"]\n'
+
+                            self.ast += '\t"' + p3 + str(p2) + '" ' + '-> ' + str(id_nodo) + '\n'
+
 
                 else:
 
                     if x.nombre == "vacio":
-                        self.id_nodo += 1
-                        id_nodo = self.id_nodo
 
-                        self.ast += '\t"' + p3 + str(p2) + '" ' + ' [color="yellow"] \n'
-                        self.ast += '\t' + str(id_nodo) + ' [color="yellow"]\n'
+                        #self.id_nodo += 1
+                        #id_nodo = self.id_nodo
 
-                        self.ast += '\t' + str(id_nodo) + ' [label="' + x.nombre + '"]\n'
-                        self.ast += '\t"' + p3 + str(p2) + '" ' + '-> ' + str(id_nodo) + '\n'
+                        self.ast += '\t"' + p3 + str(p2) + '" ' + ' [color="green"] \n'
+
+                        #self.id_nodo += 1
+                        #id_nodo = self.id_nodo
+
+                        #self.ast += '\t"' + p3 + str(p2) + '" ' + ' [color="yellow"] \n'
+                        #self.ast += '\t' + str(id_nodo) + ' [color="yellow"]\n'
+
+                        #self.ast += '\t' + str(id_nodo) + ' [label="' + x.nombre + '"]\n'
+                        #self.ast += '\t"' + p3 + str(p2) + '" ' + '-> ' + str(id_nodo) + '\n'
+                        pass
 
                     else:
 
+                        #self.ast += '\t"' + p3 + str(p2) + '" ' + ' [color="green"] \n'
                         self.ast += '\t"' + p3 + str(p2) + '" ' + '-> '
                         x.accept(self)
 

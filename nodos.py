@@ -188,7 +188,7 @@ class nodoSentenciaComp(nodo):
         self.is_vacio = is_vacio
         self.vacio_t = vacio_t
         self.nombre = 'Sentencia Comp '
-        self.errorColor = None
+        self.errorColor = False
 
     def checkSymbolTable(self, stb):
 
@@ -257,7 +257,7 @@ class nodoExpresion(nodo):
         self.thereisSemicolon = thereisSemicolon
         self.assign = assign
         self.nombre = 'Expresion '
-        self.errorColor = None
+        self.errorColor = False
 
     def checkSymbolTable(self, stb):
 
@@ -343,7 +343,7 @@ class nodoSentenciaSeleccion(nodo):
         self.is_else = is_else
         self.sentencia_p2 = sentencia_p2
         self.nombre = 'Sentencia Seleccion '
-        self.errorColor = None
+        self.errorColor = False
 
     def checkSymbolTable(self, stb):
 
@@ -440,7 +440,7 @@ class nodoSentenciaIteracion(nodo):
         self.rep = rep
         self.nombre = 'Sentencia Iteracion '
         self.y = ""
-        self.errorColor = None
+        self.errorColor = False
 
     def checkSymbolTable(self,stb):
 
@@ -498,7 +498,7 @@ class nodoSentenciaRetorno(nodo):
         self.nombre = 'Sentencia Retorno '
         self.nombre2 =  'RET ;'
         self.nombre3 = 'RET'
-        self.errorColor = None
+        self.errorColor = False
 
     def checkSymbolTable(self,st):
 
@@ -545,7 +545,7 @@ class nodoExpresionLogica(nodo):
         self.expresion_logica_p = expresion_logica_p
         self.expresion_simple_p = expresion_simple_p
         self.nombre = 'Expresion Logica '
-        self.errorColor = None
+        self.errorColor = False
 
     def checkSymbolTable(self, st):
 
@@ -606,7 +606,7 @@ class nodoBinarioOP(nodo):
         self.operacion_p = operacion_p
         self.nombre = 'Nodo Binario Op '
         self.nombre2 = nombre2
-        self.errorColor = None
+        self.errorColor = False
 
     def checkSymbolTable(self,stb):
 
@@ -615,17 +615,17 @@ class nodoBinarioOP(nodo):
         if isinstance(self.ramaDer_p, nodoInvocacion):
             for ls in listSymbol:
                 if ls.identificador == self.ramaDer_p.ID_t and ls.getsymbolTable() is not None:
-                    if ls.tipo != "ENT":
+                    if ls.tipo == "ent":
                         self.errorColor = True
                         erroresSemanticos2.append(
-                            "Error de tipo, la operación no se puede realizar, el tipo de la funcion " + ls.identificador + "() no es ENT")
+                            "Error de tipo, la operación no se puede realizar, el tipo de la funcion " + ls.identificador + "[] no es ENT")
         if isinstance(self.ramaIzq_p, nodoInvocacion):
             for ls in listSymbol:
                 if ls.identificador == self.ramaIzq_p.ID_t and ls.getsymbolTable() is not None:
-                    if ls.tipo != "ENT":
+                    if ls.tipo == "ent":
                         self.errorColor = True
                         erroresSemanticos2.append(
-                            "Error de tipo, la operación no se puede realizar, el tipo de la funcion " + ls.identificador + "() no es ENT")
+                            "Error de tipo, la operación no se puede realizar, el tipo de la funcion " + ls.identificador + "[] no es ENT")
 
             # ----------------------------------------------------------------VERIFICACION VARIABLES INICIALIZADA----------------------------------------
         # BUSCAR SI LA VARIABLE HA SIDO DECLARADA
@@ -684,7 +684,7 @@ class nodoInvocacion(nodo):
         self.ID_t = ID_t
         self.argumentos_p = argumentos_p
         self.nombre = 'Invocacion '
-        self.errorColor = None
+        self.errorColor = False
 
     def getID_t(self):
 
@@ -804,6 +804,7 @@ def isDeclared(listSymbol, listaNodosActual, node):
         erroresSemanticos2.append("Error Semántico, Variable "+node.ID_t+" no declarada")
 
 def isInitialized(listaasignaciones, node):
+
     if len(listaasignaciones) > 0:
         cont = 0
         for la in listaasignaciones:
@@ -818,8 +819,8 @@ def isInitialized(listaasignaciones, node):
                     cont += 1
         if cont == 0:
             erroresSemanticos2.append("Error de tipo, Variable "+node.ID_t+" no inicializada")
-    else:
-        erroresSemanticos2.append("Error de tipo, Variable "+node.ID_t+" no inicializada")
+    #else:
+        #erroresSemanticos2.append("Error de tipo, Variable "+node.ID_t+" no inicializada")
 
 def getesp():
     return erroresSemanticos1

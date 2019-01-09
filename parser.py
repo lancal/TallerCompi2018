@@ -565,6 +565,7 @@ def ingresarArchivo(nombreArchivo):
             st = getTable()
 
             scope_variables(st)
+
             scope_function(st)
 
             es1 = getesp()
@@ -584,7 +585,7 @@ def ingresarArchivo(nombreArchivo):
 
 
 def scope_variables(symbolTable):
-    error_variables = True
+    #error_variables = True
     if len(symbolTable.getNodos()) != 0:
 
         nodes = symbolTable.getNodos()
@@ -592,7 +593,7 @@ def scope_variables(symbolTable):
             comparation = 0
             dato = node.identificador
             for nod in nodes:
-                if dato == nod.identificador and dato != "SI" and dato != "SINO" and dato != "MIENTRAS":
+                if dato == nod.identificador and dato != "SI" and dato != "SINO" and dato != "MIENTRAS" and dato != "REP":
                     comparation += 1
             if comparation > 1 and node.getsymbolTable() is None:
 
@@ -601,7 +602,7 @@ def scope_variables(symbolTable):
             if node.getsymbolTable() is not None:
                 scope_variables(node.getsymbolTable())
 
-    return error_variables
+    #return error_variables
 
 
 
@@ -635,10 +636,7 @@ def scope_function(symbolTable):
                             if st[s].tipo == st2[s].tipo:
                                 cont += 1
                         if len(st) == cont:
-                            print(x.tipo)
-                            print("x.tipo")
-                            print(temp.identificador)
-                            print("temp.identificador")
+
                             es.append("Funciones declaradas iguales " + temp.identificador)
 
                             break
