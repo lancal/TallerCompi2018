@@ -3,9 +3,9 @@ Vacuo procedure1[VAcuo](
 )
 ent aProcedure4 [ ent aNum1, vaCuo aNum2, ent anArray1 <>, vacuO anArray2 <> ]
 (
-    ENT aNum3;
+    ent aNum3;
     ent anArray3 <456> ;
-    ENT aNum4;
+    ent aNum4;
     vAcuo anArray4 <78>;
     ent aNum5;
     aNum3 = aNum1;

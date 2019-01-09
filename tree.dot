@@ -1,231 +1,536 @@
 digraph G { ratio = fill; node [style=filled]; 
 	"Programa 1" [color="blue"] 
-	"Programa 1" -> "Declaracion Var 1"
-	"Declaracion Var 1"  [color="green"] 
-	1 [color="green"]
-	1 [label="ent"]
-	"Declaracion Var 1" -> 1
-	"Declaracion Var 1"  [color="green"] 
-	2 [color="green"]
-	2 [label="notaTaller"]
-	"Declaracion Var 1" -> 2
-	"Programa 1" -> "Declaracion Var 2"
-	"Declaracion Var 2"  [color="green"] 
-	3 [color="green"]
-	3 [label="ent"]
-	"Declaracion Var 2" -> 3
-	"Declaracion Var 2"  [color="green"] 
-	4 [color="green"]
-	4 [label="promedio"]
-	"Declaracion Var 2" -> 4
-	"Programa 1" -> "Declaracion Var 3"
-	"Declaracion Var 3"  [color="green"] 
-	5 [color="green"]
-	5 [label="ent"]
-	"Declaracion Var 3" -> 5
-	"Declaracion Var 3"  [color="green"] 
-	6 [color="green"]
-	6 [label="notaTaller1"]
-	"Declaracion Var 3" -> 6
-	"Programa 1" -> "Declaracion Var 4"
-	"Declaracion Var 4"  [color="green"] 
-	7 [color="green"]
-	7 [label="ent"]
-	"Declaracion Var 4" -> 7
-	"Declaracion Var 4"  [color="green"] 
-	8 [color="green"]
-	8 [label="notaTaller2"]
-	"Declaracion Var 4" -> 8
-	"Programa 1" -> "Declaracion Var 5"
-	"Declaracion Var 5"  [color="green"] 
-	9 [color="green"]
-	9 [label="ent"]
-	"Declaracion Var 5" -> 9
-	"Declaracion Var 5"  [color="green"] 
-	10 [color="green"]
-	10 [label="notaTaller3"]
-	"Declaracion Var 5" -> 10
-	"Programa 1" -> "Declaracion Var 6"
-	"Declaracion Var 6"  [color="green"] 
-	11 [color="green"]
-	11 [label="ent"]
-	"Declaracion Var 6" -> 11
-	"Declaracion Var 6"  [color="green"] 
-	12 [color="green"]
-	12 [label="notaTaller4"]
-	"Declaracion Var 6" -> 12
 	"Programa 1" -> "Declaracion Fun 1"
-	"Declaracion Fun 1"  [color="green"] 
-	13 [color="green"]
-	13 [label="ent"]
-	"Declaracion Fun 1" -> 13
-	"Declaracion Fun 1"  [color="green"] 
-	14 [color="green"]
-	14 [label="promedioTaller"]
-	"Declaracion Fun 1" -> 14
-	"Declaracion Fun 1" -> "Param 1"
-	"Param 1"  [color="green"] 
-	15 [color="green"]
-	15 [label="ent"]
-	"Param 1" -> 15
-	"Param 1"  [color="green"] 
-	16 [color="green"]
-	16 [label="notaTaller1"]
-	"Param 1" -> 16
-	"Declaracion Fun 1" -> "Param 2"
-	"Param 2"  [color="green"] 
-	17 [color="green"]
-	17 [label="ent"]
-	"Param 2" -> 17
-	"Param 2"  [color="green"] 
-	18 [color="green"]
-	18 [label="notaTaller2"]
-	"Param 2" -> 18
-	"Declaracion Fun 1" -> "Param 3"
-	"Param 3"  [color="green"] 
-	19 [color="green"]
-	19 [label="ent"]
-	"Param 3" -> 19
-	"Param 3"  [color="green"] 
-	20 [color="green"]
-	20 [label="notaTaller3"]
-	"Param 3" -> 20
-	"Declaracion Fun 1" -> "Param 4"
-	"Param 4"  [color="green"] 
-	21 [color="green"]
-	21 [label="ent"]
-	"Param 4" -> 21
-	"Param 4"  [color="green"] 
-	22 [color="green"]
-	22 [label="notaTaller4"]
-	"Param 4" -> 22
+	"Declaracion Fun 1"  [color="red"] 
+	1 [color="red"]
+	1 [label="Vacuo"]
+	"Declaracion Fun 1" -> 1
+	"Declaracion Fun 1"  [color="red"] 
+	2 [color="red"]
+	2 [label="procedure1"]
+	"Declaracion Fun 1" -> 2
+	"Declaracion Fun 1"  [color="red"] 
+	3 [color="red"]
+	3 [label="VAcuo"]
+	"Declaracion Fun 1" -> 3
 	"Declaracion Fun 1" -> "Sentencia Comp 1"
 	"Sentencia Comp 1"  [color="green"] 
 	"Sentencia Comp 1"  [color="green"] 
-	"Sentencia Comp 1" -> "Sentencia Retorno 1"
-	"Sentencia Retorno 1"  [color="green"] 
-	23 [color="green"]
-	23 [label="RET"]
-	"Sentencia Retorno 1" -> 23
-	"Sentencia Retorno 1" -> "NUM 1"
-	"NUM 1"  [color="green"] 
-	24 [color="green"]
-	24 [label="00"]
-	"NUM 1" -> 24
 	"Programa 1" -> "Declaracion Fun 2"
 	"Declaracion Fun 2"  [color="green"] 
-	25 [color="green"]
-	25 [label="ent"]
-	"Declaracion Fun 2" -> 25
+	4 [color="green"]
+	4 [label="ent"]
+	"Declaracion Fun 2" -> 4
 	"Declaracion Fun 2"  [color="green"] 
-	26 [color="green"]
-	26 [label="main"]
-	"Declaracion Fun 2" -> 26
-	"Declaracion Fun 2" -> "Param 5"
-	"Param 5"  [color="green"] 
-	27 [color="green"]
-	27 [label="ent"]
-	"Param 5" -> 27
-	"Param 5"  [color="green"] 
-	28 [color="green"]
-	28 [label="k"]
-	"Param 5" -> 28
+	5 [color="green"]
+	5 [label="aProcedure4"]
+	"Declaracion Fun 2" -> 5
+	"Declaracion Fun 2" -> "Param 1"
+	"Param 1"  [color="green"] 
+	6 [color="green"]
+	6 [label="ent"]
+	"Param 1" -> 6
+	"Param 1"  [color="green"] 
+	7 [color="green"]
+	7 [label="aNum1"]
+	"Param 1" -> 7
+	"Declaracion Fun 2" -> "Param 2"
+	"Param 2"  [color="red"] 
+	8 [color="red"]
+	8 [label="vaCuo"]
+	"Param 2" -> 8
+	"Param 2"  [color="red"] 
+	9 [color="red"]
+	9 [label="aNum2"]
+	"Param 2" -> 9
+	"Declaracion Fun 2" -> "Param 3"
+	"Param 3"  [color="green"] 
+	10 [color="green"]
+	10 [label="ent"]
+	"Param 3" -> 10
+	"Param 3"  [color="green"] 
+	11 [color="green"]
+	11 [label="anArray1"]
+	"Param 3" -> 11
+	"Declaracion Fun 2" -> "Param 4"
+	"Param 4"  [color="red"] 
+	12 [color="red"]
+	12 [label="vacuO"]
+	"Param 4" -> 12
+	"Param 4"  [color="red"] 
+	13 [color="red"]
+	13 [label="anArray2"]
+	"Param 4" -> 13
 	"Declaracion Fun 2" -> "Sentencia Comp 2"
 	"Sentencia Comp 2"  [color="green"] 
+	"Sentencia Comp 2" -> "Declaracion Var 1"
+	"Declaracion Var 1"  [color="green"] 
+	14 [color="green"]
+	14 [label="ent"]
+	"Declaracion Var 1" -> 14
+	"Declaracion Var 1"  [color="green"] 
+	15 [color="green"]
+	15 [label="aNum3"]
+	"Declaracion Var 1" -> 15
+	"Sentencia Comp 2" -> "Declaracion Var 2"
+	"Declaracion Var 2"  [color="green"] 
+	16 [color="green"]
+	16 [label="ent"]
+	"Declaracion Var 2" -> 16
+	"Declaracion Var 2"  [color="green"] 
+	17 [color="green"]
+	17 [label="anArray3"]
+	"Declaracion Var 2" -> 17
+	"Declaracion Var 2"  [color="green"] 
+	18 [color="green"]
+	18 [label="456"]
+	"Declaracion Var 2" -> 18
+	"Sentencia Comp 2" -> "Declaracion Var 3"
+	"Declaracion Var 3"  [color="green"] 
+	19 [color="green"]
+	19 [label="ent"]
+	"Declaracion Var 3" -> 19
+	"Declaracion Var 3"  [color="green"] 
+	20 [color="green"]
+	20 [label="aNum4"]
+	"Declaracion Var 3" -> 20
+	"Sentencia Comp 2" -> "Declaracion Var 4"
+	"Declaracion Var 4"  [color="red"] 
+	21 [color="red"]
+	21 [label="vAcuo"]
+	"Declaracion Var 4" -> 21
+	"Declaracion Var 4"  [color="red"] 
+	22 [color="red"]
+	22 [label="anArray4"]
+	"Declaracion Var 4" -> 22
+	"Declaracion Var 4"  [color="red"] 
+	23 [color="red"]
+	23 [label="78"]
+	"Declaracion Var 4" -> 23
+	"Sentencia Comp 2" -> "Declaracion Var 5"
+	"Declaracion Var 5"  [color="green"] 
+	24 [color="green"]
+	24 [label="ent"]
+	"Declaracion Var 5" -> 24
+	"Declaracion Var 5"  [color="green"] 
+	25 [color="green"]
+	25 [label="aNum5"]
+	"Declaracion Var 5" -> 25
 	"Sentencia Comp 2"  [color="green"] 
 	"Sentencia Comp 2" -> "Expresion 1"
 	"Expresion 1" -> "Var 1"
 	"Var 1"  [color="green"] 
-	29 [color="green"]
-	29 [label="notaTaller1"]
-	"Var 1" -> 29
+	26 [color="green"]
+	26 [label="aNum3"]
+	"Var 1" -> 26
 	"Expresion 1"  [color="green"] 
+	27 [color="green"]
+	27 [label="="]
+	"Expresion 1" -> 27
+	"Expresion 1" -> "Var 2"
+	"Var 2"  [color="green"] 
+	28 [color="green"]
+	28 [label="aNum1"]
+	"Var 2" -> 28
+	"Sentencia Comp 2" -> "Expresion 2"
+	"Expresion 2" -> "Var 3"
+	"Var 3"  [color="green"] 
+	29 [color="green"]
+	29 [label="aNum2"]
+	"Var 3" -> 29
+	"Expresion 2"  [color="green"] 
 	30 [color="green"]
 	30 [label="="]
-	"Expresion 1" -> 30
-	"Expresion 1" -> "NUM 2"
-	"NUM 2"  [color="green"] 
+	"Expresion 2" -> 30
+	"Expresion 2" -> "Nodo Binario Op 1"
+	"Nodo Binario Op 1" -> "Var 4"
+	"Var 4"  [color="green"] 
 	31 [color="green"]
-	31 [label="60"]
-	"NUM 2" -> 31
-	"Sentencia Comp 2" -> "Expresion 2"
-	"Expresion 2" -> "Var 2"
-	"Var 2"  [color="green"] 
+	31 [label="aNum3"]
+	"Var 4" -> 31
+	"Nodo Binario Op 1"  [color="green"] 
 	32 [color="green"]
-	32 [label="notaTaller2"]
-	"Var 2" -> 32
-	"Expresion 2"  [color="green"] 
+	32 [label="+"]
+	"Nodo Binario Op 1" -> 32
+	"Nodo Binario Op 1" -> "NUM 1"
+	"NUM 1"  [color="green"] 
 	33 [color="green"]
-	33 [label="="]
-	"Expresion 2" -> 33
-	"Expresion 2" -> "NUM 3"
-	"NUM 3"  [color="green"] 
-	34 [color="green"]
-	34 [label="40"]
-	"NUM 3" -> 34
+	33 [label="01"]
+	"NUM 1" -> 33
 	"Sentencia Comp 2" -> "Expresion 3"
-	"Expresion 3" -> "Var 3"
-	"Var 3"  [color="green"] 
+	"Expresion 3" -> "Var 5"
+	"Var 5"  [color="green"] 
+	34 [color="green"]
+	34 [label="anArray3"]
+	"Var 5" -> 34
+	"Var 5" -> "NUM 2"
+	"NUM 2"  [color="green"] 
 	35 [color="green"]
-	35 [label="notaTaller3"]
-	"Var 3" -> 35
+	35 [label="00"]
+	"NUM 2" -> 35
 	"Expresion 3"  [color="green"] 
 	36 [color="green"]
 	36 [label="="]
 	"Expresion 3" -> 36
-	"Expresion 3" -> "NUM 4"
-	"NUM 4"  [color="green"] 
-	37 [color="green"]
-	37 [label="55"]
-	"NUM 4" -> 37
-	"Sentencia Comp 2" -> "Expresion 4"
-	"Expresion 4" -> "Var 4"
-	"Var 4"  [color="green"] 
-	38 [color="green"]
-	38 [label="notaTaller4"]
-	"Var 4" -> 38
-	"Expresion 4"  [color="green"] 
-	39 [color="green"]
-	39 [label="="]
-	"Expresion 4" -> 39
-	"Expresion 4" -> "NUM 5"
-	"NUM 5"  [color="green"] 
-	40 [color="green"]
-	40 [label="10"]
-	"NUM 5" -> 40
-	"Sentencia Comp 2" -> "Expresion 5"
-	"Expresion 5" -> "Var 5"
-	"Var 5"  [color="green"] 
-	41 [color="green"]
-	41 [label="promedio"]
-	"Var 5" -> 41
-	"Expresion 5"  [color="green"] 
-	42 [color="green"]
-	42 [label="="]
-	"Expresion 5" -> 42
-	"Expresion 5" -> "Invocacion 1"
-	"Invocacion 1"  [color="green"] 
-	43 [color="green"]
-	43 [label="promedioTaller"]
-	"Invocacion 1" -> 43
-	"Invocacion 1" -> "Var 6"
+	"Expresion 3" -> "Var 6"
 	"Var 6"  [color="green"] 
-	44 [color="green"]
-	44 [label="notaTaller1"]
-	"Var 6" -> 44
-	"Invocacion 1" -> "Var 7"
+	37 [color="green"]
+	37 [label="anArray1"]
+	"Var 6" -> 37
+	"Var 6" -> "NUM 3"
+	"NUM 3"  [color="green"] 
+	38 [color="green"]
+	38 [label="02"]
+	"NUM 3" -> 38
+	"Sentencia Comp 2" -> "Expresion 4"
+	"Expresion 4" -> "Var 7"
 	"Var 7"  [color="green"] 
-	45 [color="green"]
-	45 [label="notaTaller2"]
-	"Var 7" -> 45
-	"Invocacion 1" -> "Var 8"
+	39 [color="green"]
+	39 [label="anArray2"]
+	"Var 7" -> 39
+	"Var 7" -> "NUM 4"
+	"NUM 4"  [color="green"] 
+	40 [color="green"]
+	40 [label="03"]
+	"NUM 4" -> 40
+	"Expresion 4"  [color="green"] 
+	41 [color="green"]
+	41 [label="="]
+	"Expresion 4" -> 41
+	"Expresion 4" -> "Var 8"
 	"Var 8"  [color="green"] 
-	46 [color="green"]
-	46 [label="notaTaller3"]
-	"Var 8" -> 46
-	"Invocacion 1" -> "Var 9"
+	42 [color="green"]
+	42 [label="anarray3"]
+	"Var 8" -> 42
+	"Var 8" -> "NUM 5"
+	"NUM 5"  [color="green"] 
+	43 [color="green"]
+	43 [label="04"]
+	"NUM 5" -> 43
+	"Sentencia Comp 2" -> "Expresion 5"
+	"Expresion 5"  [color="green"] 
+	44 [color="green"]
+	44 [label=";"]
+	"Expresion 5" -> 44
+	"Sentencia Comp 2" -> "Expresion 6"
+	"Expresion 6"  [color="green"] 
+	45 [color="green"]
+	45 [label=";"]
+	"Expresion 6" -> 45
+	"Sentencia Comp 2" -> "Sentencia Iteracion 1"
+	"Sentencia Iteracion 1" -> "Nodo Binario Op 2"
+	"Nodo Binario Op 2" -> "Var 9"
 	"Var 9"  [color="green"] 
+	46 [color="green"]
+	46 [label="aNum3"]
+	"Var 9" -> 46
+	"Nodo Binario Op 2"  [color="green"] 
 	47 [color="green"]
-	47 [label="notaTaller4"]
-	"Var 9" -> 47
+	47 [label="EQ"]
+	"Nodo Binario Op 2" -> 47
+	"Nodo Binario Op 2" -> "Var 10"
+	"Var 10"  [color="green"] 
+	48 [color="green"]
+	48 [label="aNum4"]
+	"Var 10" -> 48
+	"Sentencia Iteracion 1" -> "Expresion 7"
+	"Expresion 7"  [color="green"] 
+	49 [color="green"]
+	49 [label=";"]
+	"Expresion 7" -> 49
+	"Sentencia Comp 2" -> "Sentencia Iteracion 2"
+	"Sentencia Iteracion 2" -> "Nodo Binario Op 3"
+	"Nodo Binario Op 3" -> "Nodo Binario Op 4"
+	"Nodo Binario Op 4" -> "Var 11"
+	"Var 11"  [color="green"] 
+	50 [color="green"]
+	50 [label="aNum3"]
+	"Var 11" -> 50
+	"Nodo Binario Op 4"  [color="green"] 
+	51 [color="green"]
+	51 [label="+"]
+	"Nodo Binario Op 4" -> 51
+	"Nodo Binario Op 4" -> "NUM 6"
+	"NUM 6"  [color="green"] 
+	52 [color="green"]
+	52 [label="02"]
+	"NUM 6" -> 52
+	"Nodo Binario Op 3"  [color="green"] 
+	53 [color="green"]
+	53 [label="LT"]
+	"Nodo Binario Op 3" -> 53
+	"Nodo Binario Op 3" -> "Nodo Binario Op 5"
+	"Nodo Binario Op 5" -> "NUM 7"
+	"NUM 7"  [color="green"] 
+	54 [color="green"]
+	54 [label="03"]
+	"NUM 7" -> 54
+	"Nodo Binario Op 5"  [color="green"] 
+	55 [color="green"]
+	55 [label="++"]
+	"Nodo Binario Op 5" -> 55
+	"Nodo Binario Op 5" -> "Var 12"
+	"Var 12"  [color="green"] 
+	56 [color="green"]
+	56 [label="aNum10"]
+	"Var 12" -> 56
+	"Sentencia Iteracion 2" -> "Sentencia Comp 3"
+	"Sentencia Comp 3"  [color="green"] 
+	"Sentencia Comp 3"  [color="green"] 
+	"Sentencia Comp 3" -> "Sentencia Retorno 1"
+	"Sentencia Retorno 1"  [color="green"] 
+	57 [color="green"]
+	57 [label="RET ;"]
+	"Sentencia Retorno 1" -> 57
+	"Sentencia Comp 2" -> "Sentencia Seleccion 1"
+	"Sentencia Seleccion 1" -> "NUM 8"
+	"NUM 8"  [color="green"] 
+	58 [color="green"]
+	58 [label="23"]
+	"NUM 8" -> 58
+	"Sentencia Seleccion 1" -> "Expresion 8"
+	"Expresion 8"  [color="green"] 
+	59 [color="green"]
+	59 [label=";"]
+	"Expresion 8" -> 59
+	"Sentencia Comp 2" -> "Sentencia Seleccion 2"
+	"Sentencia Seleccion 2" -> "Invocacion 1"
+	"Invocacion 1"  [color="green"] 
+	60 [color="green"]
+	60 [label="procedure1"]
+	"Invocacion 1" -> 60
+	"Invocacion 1"  [color="green"] 
+	"Sentencia Seleccion 2" -> "Expresion 9"
+	"Expresion 9"  [color="green"] 
+	61 [color="green"]
+	61 [label=";"]
+	"Expresion 9" -> 61
+	"Sentencia Seleccion 2" -> "Expresion 10"
+	"Expresion 10"  [color="green"] 
+	62 [color="green"]
+	62 [label=";"]
+	"Expresion 10" -> 62
+	"Sentencia Comp 2" -> "Sentencia Seleccion 3"
+	"Sentencia Seleccion 3" -> "Nodo Binario Op 6"
+	"Nodo Binario Op 6" -> "Nodo Binario Op 7"
+	"Nodo Binario Op 7" -> "Nodo Binario Op 8"
+	"Nodo Binario Op 8" -> "NUM 9"
+	"NUM 9"  [color="green"] 
+	63 [color="green"]
+	63 [label="05"]
+	"NUM 9" -> 63
+	"Nodo Binario Op 8"  [color="green"] 
+	64 [color="green"]
+	64 [label="++"]
+	"Nodo Binario Op 8" -> 64
+	"Nodo Binario Op 8" -> "Var 13"
+	"Var 13"  [color="green"] 
+	65 [color="green"]
+	65 [label="aNum5"]
+	"Var 13" -> 65
+	"Nodo Binario Op 7"  [color="green"] 
+	66 [color="green"]
+	66 [label="-"]
+	"Nodo Binario Op 7" -> 66
+	"Nodo Binario Op 7" -> "NUM 10"
+	"NUM 10"  [color="green"] 
+	67 [color="green"]
+	67 [label="04"]
+	"NUM 10" -> 67
+	"Nodo Binario Op 6"  [color="green"] 
+	68 [color="green"]
+	68 [label="LT"]
+	"Nodo Binario Op 6" -> 68
+	"Nodo Binario Op 6" -> "Nodo Binario Op 9"
+	"Nodo Binario Op 9" -> "Var 14"
+	"Var 14"  [color="green"] 
+	69 [color="green"]
+	69 [label="aNum3"]
+	"Var 14" -> 69
+	"Nodo Binario Op 9"  [color="green"] 
+	70 [color="green"]
+	70 [label="+"]
+	"Nodo Binario Op 9" -> 70
+	"Nodo Binario Op 9" -> "Nodo Binario Op 10"
+	"Nodo Binario Op 10" -> "NUM 11"
+	"NUM 11"  [color="green"] 
+	71 [color="green"]
+	71 [label="02"]
+	"NUM 11" -> 71
+	"Nodo Binario Op 10"  [color="green"] 
+	72 [color="green"]
+	72 [label="++"]
+	"Nodo Binario Op 10" -> 72
+	"Nodo Binario Op 10" -> "Nodo Binario Op 11"
+	"Nodo Binario Op 11" -> "Nodo Binario Op 12"
+	"Nodo Binario Op 12" -> "Var 15"
+	"Var 15"  [color="green"] 
+	73 [color="green"]
+	73 [label="aNum5"]
+	"Var 15" -> 73
+	"Nodo Binario Op 12"  [color="green"] 
+	74 [color="green"]
+	74 [label="--"]
+	"Nodo Binario Op 12" -> 74
+	"Nodo Binario Op 12" -> "NUM 12"
+	"NUM 12"  [color="green"] 
+	75 [color="green"]
+	75 [label="03"]
+	"NUM 12" -> 75
+	"Nodo Binario Op 11"  [color="green"] 
+	76 [color="green"]
+	76 [label="-"]
+	"Nodo Binario Op 11" -> 76
+	"Nodo Binario Op 11" -> "NUM 13"
+	"NUM 13"  [color="green"] 
+	77 [color="green"]
+	77 [label="07"]
+	"NUM 13" -> 77
+	"Sentencia Seleccion 3" -> "Expresion 11"
+	"Expresion 11" -> "Var 16"
+	"Var 16"  [color="green"] 
+	78 [color="green"]
+	78 [label="aNum5"]
+	"Var 16" -> 78
+	"Expresion 11"  [color="green"] 
+	79 [color="green"]
+	79 [label="="]
+	"Expresion 11" -> 79
+	"Expresion 11" -> "Nodo Binario Op 13"
+	"Nodo Binario Op 13" -> "NUM 14"
+	"NUM 14"  [color="green"] 
+	80 [color="green"]
+	80 [label="03"]
+	"NUM 14" -> 80
+	"Nodo Binario Op 13"  [color="green"] 
+	81 [color="green"]
+	81 [label="++"]
+	"Nodo Binario Op 13" -> 81
+	"Nodo Binario Op 13" -> "Var 17"
+	"Var 17"  [color="green"] 
+	82 [color="green"]
+	82 [label="aNum5"]
+	"Var 17" -> 82
+	"Sentencia Comp 2" -> "Sentencia Seleccion 4"
+	"Sentencia Seleccion 4" -> "Nodo Binario Op 14"
+	"Nodo Binario Op 14" -> "Nodo Binario Op 15"
+	"Nodo Binario Op 15" -> "Var 18"
+	"Var 18"  [color="green"] 
+	83 [color="green"]
+	83 [label="aNum5"]
+	"Var 18" -> 83
+	"Nodo Binario Op 15"  [color="green"] 
+	84 [color="green"]
+	84 [label="-"]
+	"Nodo Binario Op 15" -> 84
+	"Nodo Binario Op 15" -> "Var 19"
+	"Var 19"  [color="green"] 
+	85 [color="green"]
+	85 [label="aNum3"]
+	"Var 19" -> 85
+	"Nodo Binario Op 14"  [color="green"] 
+	86 [color="green"]
+	86 [label="++"]
+	"Nodo Binario Op 14" -> 86
+	"Nodo Binario Op 14" -> "Nodo Binario Op 16"
+	"Nodo Binario Op 16" -> "Nodo Binario Op 17"
+	"Nodo Binario Op 17" -> "Var 20"
+	"Var 20"  [color="green"] 
+	87 [color="green"]
+	87 [label="aNum5"]
+	"Var 20" -> 87
+	"Nodo Binario Op 17"  [color="green"] 
+	88 [color="green"]
+	88 [label="--"]
+	"Nodo Binario Op 17" -> 88
+	"Nodo Binario Op 17" -> "NUM 15"
+	"NUM 15"  [color="green"] 
+	89 [color="green"]
+	89 [label="03"]
+	"NUM 15" -> 89
+	"Nodo Binario Op 16"  [color="green"] 
+	90 [color="green"]
+	90 [label="+"]
+	"Nodo Binario Op 16" -> 90
+	"Nodo Binario Op 16" -> "Nodo Binario Op 18"
+	"Nodo Binario Op 18" -> "NUM 16"
+	"NUM 16"  [color="green"] 
+	91 [color="green"]
+	91 [label="04"]
+	"NUM 16" -> 91
+	"Nodo Binario Op 18"  [color="green"] 
+	92 [color="green"]
+	92 [label="++"]
+	"Nodo Binario Op 18" -> 92
+	"Nodo Binario Op 18" -> "Var 21"
+	"Var 21"  [color="green"] 
+	93 [color="green"]
+	93 [label="aNum3"]
+	"Var 21" -> 93
+	"Sentencia Seleccion 4" -> "Sentencia Comp 4"
+	"Sentencia Comp 4"  [color="green"] 
+	"Sentencia Comp 4"  [color="green"] 
+	"Sentencia Comp 4" -> "Var 22"
+	"Var 22"  [color="green"] 
+	94 [color="green"]
+	94 [label="output"]
+	"Var 22" -> 94
+	"Var 22" -> "Var 23"
+	"Var 23"  [color="green"] 
+	95 [color="green"]
+	95 [label="aNum3"]
+	"Var 23" -> 95
+	"Sentencia Seleccion 4" -> "Sentencia Comp 5"
+	"Sentencia Comp 5"  [color="green"] 
+	"Sentencia Comp 5"  [color="green"] 
+	"Sentencia Comp 5" -> "Expresion 12"
+	"Expresion 12" -> "Var 24"
+	"Var 24"  [color="green"] 
+	96 [color="green"]
+	96 [label="aNum4"]
+	"Var 24" -> 96
+	"Expresion 12"  [color="green"] 
+	97 [color="green"]
+	97 [label="="]
+	"Expresion 12" -> 97
+	"Expresion 12" -> "Var 25"
+	"Var 25"  [color="green"] 
+	98 [color="green"]
+	98 [label="input"]
+	"Var 25" -> 98
+	"Var 25" -> "NUM 17"
+	"NUM 17"  [color="green"] 
+	99 [color="green"]
+	99 [label="3"]
+	"NUM 17" -> 99
+	"Sentencia Comp 5" -> "Sentencia Retorno 2"
+	"Sentencia Retorno 2"  [color="green"] 
+	100 [color="green"]
+	100 [label="RET"]
+	"Sentencia Retorno 2" -> 100
+	"Sentencia Retorno 2" -> "Var 26"
+	"Var 26"  [color="green"] 
+	101 [color="green"]
+	101 [label="aNum3"]
+	"Var 26" -> 101
+	"Sentencia Comp 2" -> "Sentencia Retorno 3"
+	"Sentencia Retorno 3"  [color="green"] 
+	102 [color="green"]
+	102 [label="RET"]
+	"Sentencia Retorno 3" -> 102
+	"Sentencia Retorno 3" -> "Nodo Binario Op 19"
+	"Nodo Binario Op 19" -> "NUM 18"
+	"NUM 18"  [color="green"] 
+	103 [color="green"]
+	103 [label="05"]
+	"NUM 18" -> 103
+	"Nodo Binario Op 19"  [color="green"] 
+	104 [color="green"]
+	104 [label="--"]
+	"Nodo Binario Op 19" -> 104
+	"Nodo Binario Op 19" -> "NUM 19"
+	"NUM 19"  [color="green"] 
+	105 [color="green"]
+	105 [label="00"]
+	"NUM 19" -> 105
 }
