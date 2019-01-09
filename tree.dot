@@ -1,0 +1,170 @@
+digraph G { ratio = fill; node [style=filled]; 
+	"Programa 1" [color="blue"] 
+	"Programa 1" -> "Declaracion Var 1"
+	"Declaracion Var 1"  [color="red"] 
+	1 [color="red"]
+	1 [label="VACUo"]
+	"Declaracion Var 1" -> 1
+	"Declaracion Var 1"  [color="red"] 
+	2 [color="red"]
+	2 [label="ab$ccc"]
+	"Declaracion Var 1" -> 2
+	"Programa 1" -> "Declaracion Var 2"
+	"Declaracion Var 2"  [color="red"] 
+	3 [color="red"]
+	3 [label="VACUO"]
+	"Declaracion Var 2" -> 3
+	"Declaracion Var 2"  [color="red"] 
+	4 [color="red"]
+	4 [label="ab$ccd"]
+	"Declaracion Var 2" -> 4
+	"Programa 1" -> "Declaracion Var 3"
+	"Declaracion Var 3"  [color="red"] 
+	5 [color="red"]
+	5 [label="VACUO"]
+	"Declaracion Var 3" -> 5
+	"Declaracion Var 3"  [color="red"] 
+	6 [color="red"]
+	6 [label="ab$aaf"]
+	"Declaracion Var 3" -> 6
+	"Declaracion Var 3"  [color="red"] 
+	7 [color="red"]
+	7 [label="123"]
+	"Declaracion Var 3" -> 7
+	"Programa 1" -> "Declaracion Var 4"
+	"Declaracion Var 4"  [color="red"] 
+	8 [color="red"]
+	8 [label="VACuo"]
+	"Declaracion Var 4" -> 8
+	"Declaracion Var 4"  [color="red"] 
+	9 [color="red"]
+	9 [label="ab$aag"]
+	"Declaracion Var 4" -> 9
+	"Programa 1" -> "Declaracion Var 5"
+	"Declaracion Var 5"  [color="green"] 
+	10 [color="green"]
+	10 [label="ent"]
+	"Declaracion Var 5" -> 10
+	"Declaracion Var 5"  [color="green"] 
+	11 [color="green"]
+	11 [label="abc"]
+	"Declaracion Var 5" -> 11
+	"Programa 1" -> "Declaracion Fun 1"
+	"Declaracion Fun 1"  [color="green"] 
+	12 [color="green"]
+	12 [label="ent"]
+	"Declaracion Fun 1" -> 12
+	"Declaracion Fun 1"  [color="green"] 
+	13 [color="green"]
+	13 [label="aaa"]
+	"Declaracion Fun 1" -> 13
+	"Declaracion Fun 1" -> "Param 1"
+	"Param 1"  [color="red"] 
+	14 [color="red"]
+	14 [label="VACUO"]
+	"Param 1" -> 14
+	"Declaracion Fun 1" -> "Sentencia Comp 1"
+	"Sentencia Comp 1"  [color="yellow"] 
+	15 [color="yellow"]
+	15 [label="vacio"]
+	"Sentencia Comp 1" -> 15
+	"Sentencia Comp 1"  [color="yellow"] 
+	16 [color="yellow"]
+	16 [label="vacio"]
+	"Sentencia Comp 1" -> 16
+	"Programa 1" -> "Declaracion Fun 2"
+	"Declaracion Fun 2"  [color="green"] 
+	17 [color="green"]
+	17 [label="ent"]
+	"Declaracion Fun 2" -> 17
+	"Declaracion Fun 2"  [color="green"] 
+	18 [color="green"]
+	18 [label="aaa"]
+	"Declaracion Fun 2" -> 18
+	"Declaracion Fun 2" -> "Param 2"
+	"Param 2"  [color="red"] 
+	19 [color="red"]
+	19 [label="VACUO"]
+	"Param 2" -> 19
+	"Declaracion Fun 2" -> "Sentencia Comp 2"
+	"Sentencia Comp 2"  [color="yellow"] 
+	20 [color="yellow"]
+	20 [label="vacio"]
+	"Sentencia Comp 2" -> 20
+	"Sentencia Comp 2"  [color="yellow"] 
+	21 [color="yellow"]
+	21 [label="vacio"]
+	"Sentencia Comp 2" -> 21
+	"Programa 1" -> "Declaracion Fun 3"
+	"Declaracion Fun 3"  [color="green"] 
+	22 [color="green"]
+	22 [label="VACUO"]
+	"Declaracion Fun 3" -> 22
+	"Declaracion Fun 3"  [color="green"] 
+	23 [color="green"]
+	23 [label="ab"]
+	"Declaracion Fun 3" -> 23
+	"Declaracion Fun 3" -> "Param 3"
+	"Param 3"  [color="green"] 
+	24 [color="green"]
+	24 [label="ent"]
+	"Param 3" -> 24
+	"Param 3"  [color="green"] 
+	25 [color="green"]
+	25 [label="f"]
+	"Param 3" -> 25
+	"Declaracion Fun 3" -> "Param 4"
+	"Param 4"  [color="green"] 
+	26 [color="green"]
+	26 [label="ent"]
+	"Param 4" -> 26
+	"Param 4"  [color="green"] 
+	27 [color="green"]
+	27 [label="k"]
+	"Param 4" -> 27
+	"Declaracion Fun 3" -> "Sentencia Comp 3"
+	"Sentencia Comp 3"  [color="yellow"] 
+	28 [color="yellow"]
+	28 [label="vacio"]
+	"Sentencia Comp 3" -> 28
+	"Sentencia Comp 3"  [color="yellow"] 
+	29 [color="yellow"]
+	29 [label="vacio"]
+	"Sentencia Comp 3" -> 29
+	"Programa 1" -> "Declaracion Fun 4"
+	"Declaracion Fun 4"  [color="green"] 
+	30 [color="green"]
+	30 [label="VACUO"]
+	"Declaracion Fun 4" -> 30
+	"Declaracion Fun 4"  [color="green"] 
+	31 [color="green"]
+	31 [label="ab"]
+	"Declaracion Fun 4" -> 31
+	"Declaracion Fun 4" -> "Param 5"
+	"Param 5"  [color="green"] 
+	32 [color="green"]
+	32 [label="ent"]
+	"Param 5" -> 32
+	"Param 5"  [color="green"] 
+	33 [color="green"]
+	33 [label="f"]
+	"Param 5" -> 33
+	"Declaracion Fun 4" -> "Param 6"
+	"Param 6"  [color="green"] 
+	34 [color="green"]
+	34 [label="ent"]
+	"Param 6" -> 34
+	"Param 6"  [color="green"] 
+	35 [color="green"]
+	35 [label="k"]
+	"Param 6" -> 35
+	"Declaracion Fun 4" -> "Sentencia Comp 4"
+	"Sentencia Comp 4"  [color="yellow"] 
+	36 [color="yellow"]
+	36 [label="vacio"]
+	"Sentencia Comp 4" -> 36
+	"Sentencia Comp 4"  [color="yellow"] 
+	37 [color="yellow"]
+	37 [label="vacio"]
+	"Sentencia Comp 4" -> 37
+}

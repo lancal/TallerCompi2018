@@ -1,0 +1,2240 @@
+Created by PLY version 3.10 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    SLCOMMENT
+    MLCOMMENT
+
+Grammar
+
+Rule 0     S' -> programa
+Rule 1     programa -> lista_decl
+Rule 2     lista_decl -> lista_decl declaracion
+Rule 3     lista_decl -> declaracion
+Rule 4     declaracion -> declaracion_var
+Rule 5     declaracion -> declaracion_fun
+Rule 6     declaracion_var -> def_tipo ID SEMICOLON
+Rule 7     declaracion_var -> def_tipo ID LTCOMMENT NUM RTCOMMENT SEMICOLON
+Rule 8     def_tipo -> VACUO
+Rule 9     def_tipo -> ENT
+Rule 10    declaracion_fun -> def_tipo ID LBRACKET parametros RBRACKET sentencia_comp
+Rule 11    parametros -> lista_parametros
+Rule 12    parametros -> VACUO
+Rule 13    lista_parametros -> lista_parametros COMMA param
+Rule 14    lista_parametros -> param
+Rule 15    param -> def_tipo ID
+Rule 16    param -> def_tipo ID LTCOMMENT RTCOMMENT
+Rule 17    sentencia_comp -> LPARENT declaraciones_locales lista_sentencias RPARENT
+Rule 18    declaraciones_locales -> declaraciones_locales declaracion_var
+Rule 19    declaraciones_locales -> vacio
+Rule 20    lista_sentencias -> lista_sentencias sentencia
+Rule 21    lista_sentencias -> vacio
+Rule 22    sentencia -> sentencia_expr
+Rule 23    sentencia -> sentencia_comp
+Rule 24    sentencia -> sentencia_seleccion
+Rule 25    sentencia -> sentencia_iteracion
+Rule 26    sentencia -> sentencia_retorno
+Rule 27    sentencia_expr -> expresion SEMICOLON
+Rule 28    sentencia_expr -> SEMICOLON
+Rule 29    sentencia_seleccion -> SI LBRACKET expresion RBRACKET sentencia
+Rule 30    sentencia_seleccion -> SI LBRACKET expresion RBRACKET sentencia SINO sentencia
+Rule 31    sentencia_iteracion -> MIENTRAS LBRACKET expresion RBRACKET sentencia
+Rule 32    sentencia_iteracion -> REP sentencia_comp
+Rule 33    sentencia_retorno -> RET SEMICOLON
+Rule 34    sentencia_retorno -> RET expresion SEMICOLON
+Rule 35    expresion -> var ASSIGN expresion
+Rule 36    expresion -> expresion_negada
+Rule 37    var -> ID
+Rule 38    var -> ID LTCOMMENT expresion RTCOMMENT
+Rule 39    expresion_negada -> NOT LBRACKET expresion_logica RBRACKET
+Rule 40    expresion_negada -> expresion_logica
+Rule 41    expresion_logica -> expresion_logica AND expresion_simple
+Rule 42    expresion_logica -> expresion_logica AND NOT LBRACKET expresion_simple RBRACKET
+Rule 43    expresion_logica -> expresion_simple
+Rule 44    expresion_logica -> NOT LBRACKET expresion_simple RBRACKET
+Rule 45    expresion_simple -> expresion_simple relop expresion_aditiva
+Rule 46    expresion_simple -> expresion_aditiva
+Rule 47    relop -> LT
+Rule 48    relop -> EQ
+Rule 49    expresion_aditiva -> expresion_aditiva addop term
+Rule 50    expresion_aditiva -> term
+Rule 51    addop -> PLUS
+Rule 52    addop -> MINUS
+Rule 53    term -> term mulop factor
+Rule 54    term -> factor
+Rule 55    mulop -> TIMES
+Rule 56    mulop -> DIVIDE
+Rule 57    factor -> LBRACKET expresion RBRACKET
+Rule 58    factor -> var
+Rule 59    factor -> invocacion
+Rule 60    factor -> NUM
+Rule 61    invocacion -> ID LBRACKET argumentos RBRACKET
+Rule 62    argumentos -> lista_arg
+Rule 63    argumentos -> vacio
+Rule 64    lista_arg -> lista_arg COMMA expresion
+Rule 65    lista_arg -> expresion
+Rule 66    vacio -> <empty>
+
+Terminals, with rules where they appear
+
+AND                  : 41 42
+ASSIGN               : 35
+COMMA                : 13 64
+DIVIDE               : 56
+ENT                  : 9
+EQ                   : 48
+ID                   : 6 7 10 15 16 37 38 61
+LBRACKET             : 10 29 30 31 39 42 44 57 61
+LPARENT              : 17
+LT                   : 47
+LTCOMMENT            : 7 16 38
+MIENTRAS             : 31
+MINUS                : 52
+MLCOMMENT            : 
+NOT                  : 39 42 44
+NUM                  : 7 60
+PLUS                 : 51
+RBRACKET             : 10 29 30 31 39 42 44 57 61
+REP                  : 32
+RET                  : 33 34
+RPARENT              : 17
+RTCOMMENT            : 7 16 38
+SEMICOLON            : 6 7 27 28 33 34
+SI                   : 29 30
+SINO                 : 30
+SLCOMMENT            : 
+TIMES                : 55
+VACUO                : 8 12
+error                : 
+
+Nonterminals, with rules where they appear
+
+addop                : 49
+argumentos           : 61
+declaracion          : 2 3
+declaracion_fun      : 5
+declaracion_var      : 4 18
+declaraciones_locales : 17 18
+def_tipo             : 6 7 10 15 16
+expresion            : 27 29 30 31 34 35 38 57 64 65
+expresion_aditiva    : 45 46 49
+expresion_logica     : 39 40 41 42
+expresion_negada     : 36
+expresion_simple     : 41 42 43 44 45
+factor               : 53 54
+invocacion           : 59
+lista_arg            : 62 64
+lista_decl           : 1 2
+lista_parametros     : 11 13
+lista_sentencias     : 17 20
+mulop                : 53
+param                : 13 14
+parametros           : 10
+programa             : 0
+relop                : 45
+sentencia            : 20 29 30 30 31
+sentencia_comp       : 10 23 32
+sentencia_expr       : 22
+sentencia_iteracion  : 25
+sentencia_retorno    : 26
+sentencia_seleccion  : 24
+term                 : 49 50 53
+vacio                : 19 21 63
+var                  : 35 58
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . programa
+    (1) programa -> . lista_decl
+    (2) lista_decl -> . lista_decl declaracion
+    (3) lista_decl -> . declaracion
+    (4) declaracion -> . declaracion_var
+    (5) declaracion -> . declaracion_fun
+    (6) declaracion_var -> . def_tipo ID SEMICOLON
+    (7) declaracion_var -> . def_tipo ID LTCOMMENT NUM RTCOMMENT SEMICOLON
+    (10) declaracion_fun -> . def_tipo ID LBRACKET parametros RBRACKET sentencia_comp
+    (8) def_tipo -> . VACUO
+    (9) def_tipo -> . ENT
+
+    VACUO           shift and go to state 7
+    ENT             shift and go to state 8
+
+    programa                       shift and go to state 1
+    lista_decl                     shift and go to state 2
+    declaracion                    shift and go to state 3
+    declaracion_var                shift and go to state 4
+    declaracion_fun                shift and go to state 5
+    def_tipo                       shift and go to state 6
+
+state 1
+
+    (0) S' -> programa .
+
+
+
+state 2
+
+    (1) programa -> lista_decl .
+    (2) lista_decl -> lista_decl . declaracion
+    (4) declaracion -> . declaracion_var
+    (5) declaracion -> . declaracion_fun
+    (6) declaracion_var -> . def_tipo ID SEMICOLON
+    (7) declaracion_var -> . def_tipo ID LTCOMMENT NUM RTCOMMENT SEMICOLON
+    (10) declaracion_fun -> . def_tipo ID LBRACKET parametros RBRACKET sentencia_comp
+    (8) def_tipo -> . VACUO
+    (9) def_tipo -> . ENT
+
+    $end            reduce using rule 1 (programa -> lista_decl .)
+    VACUO           shift and go to state 7
+    ENT             shift and go to state 8
+
+    declaracion                    shift and go to state 9
+    declaracion_var                shift and go to state 4
+    declaracion_fun                shift and go to state 5
+    def_tipo                       shift and go to state 6
+
+state 3
+
+    (3) lista_decl -> declaracion .
+
+    VACUO           reduce using rule 3 (lista_decl -> declaracion .)
+    ENT             reduce using rule 3 (lista_decl -> declaracion .)
+    $end            reduce using rule 3 (lista_decl -> declaracion .)
+
+
+state 4
+
+    (4) declaracion -> declaracion_var .
+
+    VACUO           reduce using rule 4 (declaracion -> declaracion_var .)
+    ENT             reduce using rule 4 (declaracion -> declaracion_var .)
+    $end            reduce using rule 4 (declaracion -> declaracion_var .)
+
+
+state 5
+
+    (5) declaracion -> declaracion_fun .
+
+    VACUO           reduce using rule 5 (declaracion -> declaracion_fun .)
+    ENT             reduce using rule 5 (declaracion -> declaracion_fun .)
+    $end            reduce using rule 5 (declaracion -> declaracion_fun .)
+
+
+state 6
+
+    (6) declaracion_var -> def_tipo . ID SEMICOLON
+    (7) declaracion_var -> def_tipo . ID LTCOMMENT NUM RTCOMMENT SEMICOLON
+    (10) declaracion_fun -> def_tipo . ID LBRACKET parametros RBRACKET sentencia_comp
+
+    ID              shift and go to state 10
+
+
+state 7
+
+    (8) def_tipo -> VACUO .
+
+    ID              reduce using rule 8 (def_tipo -> VACUO .)
+
+
+state 8
+
+    (9) def_tipo -> ENT .
+
+    ID              reduce using rule 9 (def_tipo -> ENT .)
+
+
+state 9
+
+    (2) lista_decl -> lista_decl declaracion .
+
+    VACUO           reduce using rule 2 (lista_decl -> lista_decl declaracion .)
+    ENT             reduce using rule 2 (lista_decl -> lista_decl declaracion .)
+    $end            reduce using rule 2 (lista_decl -> lista_decl declaracion .)
+
+
+state 10
+
+    (6) declaracion_var -> def_tipo ID . SEMICOLON
+    (7) declaracion_var -> def_tipo ID . LTCOMMENT NUM RTCOMMENT SEMICOLON
+    (10) declaracion_fun -> def_tipo ID . LBRACKET parametros RBRACKET sentencia_comp
+
+    SEMICOLON       shift and go to state 11
+    LTCOMMENT       shift and go to state 12
+    LBRACKET        shift and go to state 13
+
+
+state 11
+
+    (6) declaracion_var -> def_tipo ID SEMICOLON .
+
+    VACUO           reduce using rule 6 (declaracion_var -> def_tipo ID SEMICOLON .)
+    ENT             reduce using rule 6 (declaracion_var -> def_tipo ID SEMICOLON .)
+    $end            reduce using rule 6 (declaracion_var -> def_tipo ID SEMICOLON .)
+    RPARENT         reduce using rule 6 (declaracion_var -> def_tipo ID SEMICOLON .)
+    SEMICOLON       reduce using rule 6 (declaracion_var -> def_tipo ID SEMICOLON .)
+    LPARENT         reduce using rule 6 (declaracion_var -> def_tipo ID SEMICOLON .)
+    SI              reduce using rule 6 (declaracion_var -> def_tipo ID SEMICOLON .)
+    MIENTRAS        reduce using rule 6 (declaracion_var -> def_tipo ID SEMICOLON .)
+    REP             reduce using rule 6 (declaracion_var -> def_tipo ID SEMICOLON .)
+    RET             reduce using rule 6 (declaracion_var -> def_tipo ID SEMICOLON .)
+    ID              reduce using rule 6 (declaracion_var -> def_tipo ID SEMICOLON .)
+    NOT             reduce using rule 6 (declaracion_var -> def_tipo ID SEMICOLON .)
+    LBRACKET        reduce using rule 6 (declaracion_var -> def_tipo ID SEMICOLON .)
+    NUM             reduce using rule 6 (declaracion_var -> def_tipo ID SEMICOLON .)
+
+
+state 12
+
+    (7) declaracion_var -> def_tipo ID LTCOMMENT . NUM RTCOMMENT SEMICOLON
+
+    NUM             shift and go to state 14
+
+
+state 13
+
+    (10) declaracion_fun -> def_tipo ID LBRACKET . parametros RBRACKET sentencia_comp
+    (11) parametros -> . lista_parametros
+    (12) parametros -> . VACUO
+    (13) lista_parametros -> . lista_parametros COMMA param
+    (14) lista_parametros -> . param
+    (15) param -> . def_tipo ID
+    (16) param -> . def_tipo ID LTCOMMENT RTCOMMENT
+    (8) def_tipo -> . VACUO
+    (9) def_tipo -> . ENT
+
+    VACUO           shift and go to state 18
+    ENT             shift and go to state 8
+
+    def_tipo                       shift and go to state 15
+    parametros                     shift and go to state 16
+    lista_parametros               shift and go to state 17
+    param                          shift and go to state 19
+
+state 14
+
+    (7) declaracion_var -> def_tipo ID LTCOMMENT NUM . RTCOMMENT SEMICOLON
+
+    RTCOMMENT       shift and go to state 20
+
+
+state 15
+
+    (15) param -> def_tipo . ID
+    (16) param -> def_tipo . ID LTCOMMENT RTCOMMENT
+
+    ID              shift and go to state 21
+
+
+state 16
+
+    (10) declaracion_fun -> def_tipo ID LBRACKET parametros . RBRACKET sentencia_comp
+
+    RBRACKET        shift and go to state 22
+
+
+state 17
+
+    (11) parametros -> lista_parametros .
+    (13) lista_parametros -> lista_parametros . COMMA param
+
+    RBRACKET        reduce using rule 11 (parametros -> lista_parametros .)
+    COMMA           shift and go to state 23
+
+
+state 18
+
+    (12) parametros -> VACUO .
+    (8) def_tipo -> VACUO .
+
+    RBRACKET        reduce using rule 12 (parametros -> VACUO .)
+    ID              reduce using rule 8 (def_tipo -> VACUO .)
+
+
+state 19
+
+    (14) lista_parametros -> param .
+
+    COMMA           reduce using rule 14 (lista_parametros -> param .)
+    RBRACKET        reduce using rule 14 (lista_parametros -> param .)
+
+
+state 20
+
+    (7) declaracion_var -> def_tipo ID LTCOMMENT NUM RTCOMMENT . SEMICOLON
+
+    SEMICOLON       shift and go to state 24
+
+
+state 21
+
+    (15) param -> def_tipo ID .
+    (16) param -> def_tipo ID . LTCOMMENT RTCOMMENT
+
+    COMMA           reduce using rule 15 (param -> def_tipo ID .)
+    RBRACKET        reduce using rule 15 (param -> def_tipo ID .)
+    LTCOMMENT       shift and go to state 25
+
+
+state 22
+
+    (10) declaracion_fun -> def_tipo ID LBRACKET parametros RBRACKET . sentencia_comp
+    (17) sentencia_comp -> . LPARENT declaraciones_locales lista_sentencias RPARENT
+
+    LPARENT         shift and go to state 27
+
+    sentencia_comp                 shift and go to state 26
+
+state 23
+
+    (13) lista_parametros -> lista_parametros COMMA . param
+    (15) param -> . def_tipo ID
+    (16) param -> . def_tipo ID LTCOMMENT RTCOMMENT
+    (8) def_tipo -> . VACUO
+    (9) def_tipo -> . ENT
+
+    VACUO           shift and go to state 7
+    ENT             shift and go to state 8
+
+    param                          shift and go to state 28
+    def_tipo                       shift and go to state 15
+
+state 24
+
+    (7) declaracion_var -> def_tipo ID LTCOMMENT NUM RTCOMMENT SEMICOLON .
+
+    VACUO           reduce using rule 7 (declaracion_var -> def_tipo ID LTCOMMENT NUM RTCOMMENT SEMICOLON .)
+    ENT             reduce using rule 7 (declaracion_var -> def_tipo ID LTCOMMENT NUM RTCOMMENT SEMICOLON .)
+    $end            reduce using rule 7 (declaracion_var -> def_tipo ID LTCOMMENT NUM RTCOMMENT SEMICOLON .)
+    RPARENT         reduce using rule 7 (declaracion_var -> def_tipo ID LTCOMMENT NUM RTCOMMENT SEMICOLON .)
+    SEMICOLON       reduce using rule 7 (declaracion_var -> def_tipo ID LTCOMMENT NUM RTCOMMENT SEMICOLON .)
+    LPARENT         reduce using rule 7 (declaracion_var -> def_tipo ID LTCOMMENT NUM RTCOMMENT SEMICOLON .)
+    SI              reduce using rule 7 (declaracion_var -> def_tipo ID LTCOMMENT NUM RTCOMMENT SEMICOLON .)
+    MIENTRAS        reduce using rule 7 (declaracion_var -> def_tipo ID LTCOMMENT NUM RTCOMMENT SEMICOLON .)
+    REP             reduce using rule 7 (declaracion_var -> def_tipo ID LTCOMMENT NUM RTCOMMENT SEMICOLON .)
+    RET             reduce using rule 7 (declaracion_var -> def_tipo ID LTCOMMENT NUM RTCOMMENT SEMICOLON .)
+    ID              reduce using rule 7 (declaracion_var -> def_tipo ID LTCOMMENT NUM RTCOMMENT SEMICOLON .)
+    NOT             reduce using rule 7 (declaracion_var -> def_tipo ID LTCOMMENT NUM RTCOMMENT SEMICOLON .)
+    LBRACKET        reduce using rule 7 (declaracion_var -> def_tipo ID LTCOMMENT NUM RTCOMMENT SEMICOLON .)
+    NUM             reduce using rule 7 (declaracion_var -> def_tipo ID LTCOMMENT NUM RTCOMMENT SEMICOLON .)
+
+
+state 25
+
+    (16) param -> def_tipo ID LTCOMMENT . RTCOMMENT
+
+    RTCOMMENT       shift and go to state 29
+
+
+state 26
+
+    (10) declaracion_fun -> def_tipo ID LBRACKET parametros RBRACKET sentencia_comp .
+
+    VACUO           reduce using rule 10 (declaracion_fun -> def_tipo ID LBRACKET parametros RBRACKET sentencia_comp .)
+    ENT             reduce using rule 10 (declaracion_fun -> def_tipo ID LBRACKET parametros RBRACKET sentencia_comp .)
+    $end            reduce using rule 10 (declaracion_fun -> def_tipo ID LBRACKET parametros RBRACKET sentencia_comp .)
+
+
+state 27
+
+    (17) sentencia_comp -> LPARENT . declaraciones_locales lista_sentencias RPARENT
+    (18) declaraciones_locales -> . declaraciones_locales declaracion_var
+    (19) declaraciones_locales -> . vacio
+    (66) vacio -> .
+
+    VACUO           reduce using rule 66 (vacio -> .)
+    ENT             reduce using rule 66 (vacio -> .)
+    RPARENT         reduce using rule 66 (vacio -> .)
+    SEMICOLON       reduce using rule 66 (vacio -> .)
+    LPARENT         reduce using rule 66 (vacio -> .)
+    SI              reduce using rule 66 (vacio -> .)
+    MIENTRAS        reduce using rule 66 (vacio -> .)
+    REP             reduce using rule 66 (vacio -> .)
+    RET             reduce using rule 66 (vacio -> .)
+    ID              reduce using rule 66 (vacio -> .)
+    NOT             reduce using rule 66 (vacio -> .)
+    LBRACKET        reduce using rule 66 (vacio -> .)
+    NUM             reduce using rule 66 (vacio -> .)
+
+    declaraciones_locales          shift and go to state 30
+    vacio                          shift and go to state 31
+
+state 28
+
+    (13) lista_parametros -> lista_parametros COMMA param .
+
+    COMMA           reduce using rule 13 (lista_parametros -> lista_parametros COMMA param .)
+    RBRACKET        reduce using rule 13 (lista_parametros -> lista_parametros COMMA param .)
+
+
+state 29
+
+    (16) param -> def_tipo ID LTCOMMENT RTCOMMENT .
+
+    COMMA           reduce using rule 16 (param -> def_tipo ID LTCOMMENT RTCOMMENT .)
+    RBRACKET        reduce using rule 16 (param -> def_tipo ID LTCOMMENT RTCOMMENT .)
+
+
+state 30
+
+    (17) sentencia_comp -> LPARENT declaraciones_locales . lista_sentencias RPARENT
+    (18) declaraciones_locales -> declaraciones_locales . declaracion_var
+    (20) lista_sentencias -> . lista_sentencias sentencia
+    (21) lista_sentencias -> . vacio
+    (6) declaracion_var -> . def_tipo ID SEMICOLON
+    (7) declaracion_var -> . def_tipo ID LTCOMMENT NUM RTCOMMENT SEMICOLON
+    (66) vacio -> .
+    (8) def_tipo -> . VACUO
+    (9) def_tipo -> . ENT
+
+    RPARENT         reduce using rule 66 (vacio -> .)
+    SEMICOLON       reduce using rule 66 (vacio -> .)
+    LPARENT         reduce using rule 66 (vacio -> .)
+    SI              reduce using rule 66 (vacio -> .)
+    MIENTRAS        reduce using rule 66 (vacio -> .)
+    REP             reduce using rule 66 (vacio -> .)
+    RET             reduce using rule 66 (vacio -> .)
+    ID              reduce using rule 66 (vacio -> .)
+    NOT             reduce using rule 66 (vacio -> .)
+    LBRACKET        reduce using rule 66 (vacio -> .)
+    NUM             reduce using rule 66 (vacio -> .)
+    VACUO           shift and go to state 7
+    ENT             shift and go to state 8
+
+    lista_sentencias               shift and go to state 32
+    declaracion_var                shift and go to state 33
+    vacio                          shift and go to state 34
+    def_tipo                       shift and go to state 35
+
+state 31
+
+    (19) declaraciones_locales -> vacio .
+
+    VACUO           reduce using rule 19 (declaraciones_locales -> vacio .)
+    ENT             reduce using rule 19 (declaraciones_locales -> vacio .)
+    RPARENT         reduce using rule 19 (declaraciones_locales -> vacio .)
+    SEMICOLON       reduce using rule 19 (declaraciones_locales -> vacio .)
+    LPARENT         reduce using rule 19 (declaraciones_locales -> vacio .)
+    SI              reduce using rule 19 (declaraciones_locales -> vacio .)
+    MIENTRAS        reduce using rule 19 (declaraciones_locales -> vacio .)
+    REP             reduce using rule 19 (declaraciones_locales -> vacio .)
+    RET             reduce using rule 19 (declaraciones_locales -> vacio .)
+    ID              reduce using rule 19 (declaraciones_locales -> vacio .)
+    NOT             reduce using rule 19 (declaraciones_locales -> vacio .)
+    LBRACKET        reduce using rule 19 (declaraciones_locales -> vacio .)
+    NUM             reduce using rule 19 (declaraciones_locales -> vacio .)
+
+
+state 32
+
+    (17) sentencia_comp -> LPARENT declaraciones_locales lista_sentencias . RPARENT
+    (20) lista_sentencias -> lista_sentencias . sentencia
+    (22) sentencia -> . sentencia_expr
+    (23) sentencia -> . sentencia_comp
+    (24) sentencia -> . sentencia_seleccion
+    (25) sentencia -> . sentencia_iteracion
+    (26) sentencia -> . sentencia_retorno
+    (27) sentencia_expr -> . expresion SEMICOLON
+    (28) sentencia_expr -> . SEMICOLON
+    (17) sentencia_comp -> . LPARENT declaraciones_locales lista_sentencias RPARENT
+    (29) sentencia_seleccion -> . SI LBRACKET expresion RBRACKET sentencia
+    (30) sentencia_seleccion -> . SI LBRACKET expresion RBRACKET sentencia SINO sentencia
+    (31) sentencia_iteracion -> . MIENTRAS LBRACKET expresion RBRACKET sentencia
+    (32) sentencia_iteracion -> . REP sentencia_comp
+    (33) sentencia_retorno -> . RET SEMICOLON
+    (34) sentencia_retorno -> . RET expresion SEMICOLON
+    (35) expresion -> . var ASSIGN expresion
+    (36) expresion -> . expresion_negada
+    (37) var -> . ID
+    (38) var -> . ID LTCOMMENT expresion RTCOMMENT
+    (39) expresion_negada -> . NOT LBRACKET expresion_logica RBRACKET
+    (40) expresion_negada -> . expresion_logica
+    (41) expresion_logica -> . expresion_logica AND expresion_simple
+    (42) expresion_logica -> . expresion_logica AND NOT LBRACKET expresion_simple RBRACKET
+    (43) expresion_logica -> . expresion_simple
+    (44) expresion_logica -> . NOT LBRACKET expresion_simple RBRACKET
+    (45) expresion_simple -> . expresion_simple relop expresion_aditiva
+    (46) expresion_simple -> . expresion_aditiva
+    (49) expresion_aditiva -> . expresion_aditiva addop term
+    (50) expresion_aditiva -> . term
+    (53) term -> . term mulop factor
+    (54) term -> . factor
+    (57) factor -> . LBRACKET expresion RBRACKET
+    (58) factor -> . var
+    (59) factor -> . invocacion
+    (60) factor -> . NUM
+    (61) invocacion -> . ID LBRACKET argumentos RBRACKET
+
+    RPARENT         shift and go to state 36
+    SEMICOLON       shift and go to state 44
+    LPARENT         shift and go to state 27
+    SI              shift and go to state 45
+    MIENTRAS        shift and go to state 47
+    REP             shift and go to state 48
+    RET             shift and go to state 49
+    ID              shift and go to state 52
+    NOT             shift and go to state 53
+    LBRACKET        shift and go to state 46
+    NUM             shift and go to state 60
+
+    sentencia                      shift and go to state 37
+    sentencia_expr                 shift and go to state 38
+    sentencia_comp                 shift and go to state 39
+    sentencia_seleccion            shift and go to state 40
+    sentencia_iteracion            shift and go to state 41
+    sentencia_retorno              shift and go to state 42
+    expresion                      shift and go to state 43
+    var                            shift and go to state 50
+    expresion_negada               shift and go to state 51
+    expresion_logica               shift and go to state 54
+    expresion_simple               shift and go to state 55
+    expresion_aditiva              shift and go to state 56
+    term                           shift and go to state 57
+    factor                         shift and go to state 58
+    invocacion                     shift and go to state 59
+
+state 33
+
+    (18) declaraciones_locales -> declaraciones_locales declaracion_var .
+
+    VACUO           reduce using rule 18 (declaraciones_locales -> declaraciones_locales declaracion_var .)
+    ENT             reduce using rule 18 (declaraciones_locales -> declaraciones_locales declaracion_var .)
+    RPARENT         reduce using rule 18 (declaraciones_locales -> declaraciones_locales declaracion_var .)
+    SEMICOLON       reduce using rule 18 (declaraciones_locales -> declaraciones_locales declaracion_var .)
+    LPARENT         reduce using rule 18 (declaraciones_locales -> declaraciones_locales declaracion_var .)
+    SI              reduce using rule 18 (declaraciones_locales -> declaraciones_locales declaracion_var .)
+    MIENTRAS        reduce using rule 18 (declaraciones_locales -> declaraciones_locales declaracion_var .)
+    REP             reduce using rule 18 (declaraciones_locales -> declaraciones_locales declaracion_var .)
+    RET             reduce using rule 18 (declaraciones_locales -> declaraciones_locales declaracion_var .)
+    ID              reduce using rule 18 (declaraciones_locales -> declaraciones_locales declaracion_var .)
+    NOT             reduce using rule 18 (declaraciones_locales -> declaraciones_locales declaracion_var .)
+    LBRACKET        reduce using rule 18 (declaraciones_locales -> declaraciones_locales declaracion_var .)
+    NUM             reduce using rule 18 (declaraciones_locales -> declaraciones_locales declaracion_var .)
+
+
+state 34
+
+    (21) lista_sentencias -> vacio .
+
+    RPARENT         reduce using rule 21 (lista_sentencias -> vacio .)
+    SEMICOLON       reduce using rule 21 (lista_sentencias -> vacio .)
+    LPARENT         reduce using rule 21 (lista_sentencias -> vacio .)
+    SI              reduce using rule 21 (lista_sentencias -> vacio .)
+    MIENTRAS        reduce using rule 21 (lista_sentencias -> vacio .)
+    REP             reduce using rule 21 (lista_sentencias -> vacio .)
+    RET             reduce using rule 21 (lista_sentencias -> vacio .)
+    ID              reduce using rule 21 (lista_sentencias -> vacio .)
+    NOT             reduce using rule 21 (lista_sentencias -> vacio .)
+    LBRACKET        reduce using rule 21 (lista_sentencias -> vacio .)
+    NUM             reduce using rule 21 (lista_sentencias -> vacio .)
+
+
+state 35
+
+    (6) declaracion_var -> def_tipo . ID SEMICOLON
+    (7) declaracion_var -> def_tipo . ID LTCOMMENT NUM RTCOMMENT SEMICOLON
+
+    ID              shift and go to state 61
+
+
+state 36
+
+    (17) sentencia_comp -> LPARENT declaraciones_locales lista_sentencias RPARENT .
+
+    VACUO           reduce using rule 17 (sentencia_comp -> LPARENT declaraciones_locales lista_sentencias RPARENT .)
+    ENT             reduce using rule 17 (sentencia_comp -> LPARENT declaraciones_locales lista_sentencias RPARENT .)
+    $end            reduce using rule 17 (sentencia_comp -> LPARENT declaraciones_locales lista_sentencias RPARENT .)
+    RPARENT         reduce using rule 17 (sentencia_comp -> LPARENT declaraciones_locales lista_sentencias RPARENT .)
+    SEMICOLON       reduce using rule 17 (sentencia_comp -> LPARENT declaraciones_locales lista_sentencias RPARENT .)
+    LPARENT         reduce using rule 17 (sentencia_comp -> LPARENT declaraciones_locales lista_sentencias RPARENT .)
+    SI              reduce using rule 17 (sentencia_comp -> LPARENT declaraciones_locales lista_sentencias RPARENT .)
+    MIENTRAS        reduce using rule 17 (sentencia_comp -> LPARENT declaraciones_locales lista_sentencias RPARENT .)
+    REP             reduce using rule 17 (sentencia_comp -> LPARENT declaraciones_locales lista_sentencias RPARENT .)
+    RET             reduce using rule 17 (sentencia_comp -> LPARENT declaraciones_locales lista_sentencias RPARENT .)
+    ID              reduce using rule 17 (sentencia_comp -> LPARENT declaraciones_locales lista_sentencias RPARENT .)
+    NOT             reduce using rule 17 (sentencia_comp -> LPARENT declaraciones_locales lista_sentencias RPARENT .)
+    LBRACKET        reduce using rule 17 (sentencia_comp -> LPARENT declaraciones_locales lista_sentencias RPARENT .)
+    NUM             reduce using rule 17 (sentencia_comp -> LPARENT declaraciones_locales lista_sentencias RPARENT .)
+    SINO            reduce using rule 17 (sentencia_comp -> LPARENT declaraciones_locales lista_sentencias RPARENT .)
+
+
+state 37
+
+    (20) lista_sentencias -> lista_sentencias sentencia .
+
+    RPARENT         reduce using rule 20 (lista_sentencias -> lista_sentencias sentencia .)
+    SEMICOLON       reduce using rule 20 (lista_sentencias -> lista_sentencias sentencia .)
+    LPARENT         reduce using rule 20 (lista_sentencias -> lista_sentencias sentencia .)
+    SI              reduce using rule 20 (lista_sentencias -> lista_sentencias sentencia .)
+    MIENTRAS        reduce using rule 20 (lista_sentencias -> lista_sentencias sentencia .)
+    REP             reduce using rule 20 (lista_sentencias -> lista_sentencias sentencia .)
+    RET             reduce using rule 20 (lista_sentencias -> lista_sentencias sentencia .)
+    ID              reduce using rule 20 (lista_sentencias -> lista_sentencias sentencia .)
+    NOT             reduce using rule 20 (lista_sentencias -> lista_sentencias sentencia .)
+    LBRACKET        reduce using rule 20 (lista_sentencias -> lista_sentencias sentencia .)
+    NUM             reduce using rule 20 (lista_sentencias -> lista_sentencias sentencia .)
+
+
+state 38
+
+    (22) sentencia -> sentencia_expr .
+
+    RPARENT         reduce using rule 22 (sentencia -> sentencia_expr .)
+    SEMICOLON       reduce using rule 22 (sentencia -> sentencia_expr .)
+    LPARENT         reduce using rule 22 (sentencia -> sentencia_expr .)
+    SI              reduce using rule 22 (sentencia -> sentencia_expr .)
+    MIENTRAS        reduce using rule 22 (sentencia -> sentencia_expr .)
+    REP             reduce using rule 22 (sentencia -> sentencia_expr .)
+    RET             reduce using rule 22 (sentencia -> sentencia_expr .)
+    ID              reduce using rule 22 (sentencia -> sentencia_expr .)
+    NOT             reduce using rule 22 (sentencia -> sentencia_expr .)
+    LBRACKET        reduce using rule 22 (sentencia -> sentencia_expr .)
+    NUM             reduce using rule 22 (sentencia -> sentencia_expr .)
+    SINO            reduce using rule 22 (sentencia -> sentencia_expr .)
+
+
+state 39
+
+    (23) sentencia -> sentencia_comp .
+
+    RPARENT         reduce using rule 23 (sentencia -> sentencia_comp .)
+    SEMICOLON       reduce using rule 23 (sentencia -> sentencia_comp .)
+    LPARENT         reduce using rule 23 (sentencia -> sentencia_comp .)
+    SI              reduce using rule 23 (sentencia -> sentencia_comp .)
+    MIENTRAS        reduce using rule 23 (sentencia -> sentencia_comp .)
+    REP             reduce using rule 23 (sentencia -> sentencia_comp .)
+    RET             reduce using rule 23 (sentencia -> sentencia_comp .)
+    ID              reduce using rule 23 (sentencia -> sentencia_comp .)
+    NOT             reduce using rule 23 (sentencia -> sentencia_comp .)
+    LBRACKET        reduce using rule 23 (sentencia -> sentencia_comp .)
+    NUM             reduce using rule 23 (sentencia -> sentencia_comp .)
+    SINO            reduce using rule 23 (sentencia -> sentencia_comp .)
+
+
+state 40
+
+    (24) sentencia -> sentencia_seleccion .
+
+    RPARENT         reduce using rule 24 (sentencia -> sentencia_seleccion .)
+    SEMICOLON       reduce using rule 24 (sentencia -> sentencia_seleccion .)
+    LPARENT         reduce using rule 24 (sentencia -> sentencia_seleccion .)
+    SI              reduce using rule 24 (sentencia -> sentencia_seleccion .)
+    MIENTRAS        reduce using rule 24 (sentencia -> sentencia_seleccion .)
+    REP             reduce using rule 24 (sentencia -> sentencia_seleccion .)
+    RET             reduce using rule 24 (sentencia -> sentencia_seleccion .)
+    ID              reduce using rule 24 (sentencia -> sentencia_seleccion .)
+    NOT             reduce using rule 24 (sentencia -> sentencia_seleccion .)
+    LBRACKET        reduce using rule 24 (sentencia -> sentencia_seleccion .)
+    NUM             reduce using rule 24 (sentencia -> sentencia_seleccion .)
+    SINO            reduce using rule 24 (sentencia -> sentencia_seleccion .)
+
+
+state 41
+
+    (25) sentencia -> sentencia_iteracion .
+
+    RPARENT         reduce using rule 25 (sentencia -> sentencia_iteracion .)
+    SEMICOLON       reduce using rule 25 (sentencia -> sentencia_iteracion .)
+    LPARENT         reduce using rule 25 (sentencia -> sentencia_iteracion .)
+    SI              reduce using rule 25 (sentencia -> sentencia_iteracion .)
+    MIENTRAS        reduce using rule 25 (sentencia -> sentencia_iteracion .)
+    REP             reduce using rule 25 (sentencia -> sentencia_iteracion .)
+    RET             reduce using rule 25 (sentencia -> sentencia_iteracion .)
+    ID              reduce using rule 25 (sentencia -> sentencia_iteracion .)
+    NOT             reduce using rule 25 (sentencia -> sentencia_iteracion .)
+    LBRACKET        reduce using rule 25 (sentencia -> sentencia_iteracion .)
+    NUM             reduce using rule 25 (sentencia -> sentencia_iteracion .)
+    SINO            reduce using rule 25 (sentencia -> sentencia_iteracion .)
+
+
+state 42
+
+    (26) sentencia -> sentencia_retorno .
+
+    RPARENT         reduce using rule 26 (sentencia -> sentencia_retorno .)
+    SEMICOLON       reduce using rule 26 (sentencia -> sentencia_retorno .)
+    LPARENT         reduce using rule 26 (sentencia -> sentencia_retorno .)
+    SI              reduce using rule 26 (sentencia -> sentencia_retorno .)
+    MIENTRAS        reduce using rule 26 (sentencia -> sentencia_retorno .)
+    REP             reduce using rule 26 (sentencia -> sentencia_retorno .)
+    RET             reduce using rule 26 (sentencia -> sentencia_retorno .)
+    ID              reduce using rule 26 (sentencia -> sentencia_retorno .)
+    NOT             reduce using rule 26 (sentencia -> sentencia_retorno .)
+    LBRACKET        reduce using rule 26 (sentencia -> sentencia_retorno .)
+    NUM             reduce using rule 26 (sentencia -> sentencia_retorno .)
+    SINO            reduce using rule 26 (sentencia -> sentencia_retorno .)
+
+
+state 43
+
+    (27) sentencia_expr -> expresion . SEMICOLON
+
+    SEMICOLON       shift and go to state 62
+
+
+state 44
+
+    (28) sentencia_expr -> SEMICOLON .
+
+    RPARENT         reduce using rule 28 (sentencia_expr -> SEMICOLON .)
+    SEMICOLON       reduce using rule 28 (sentencia_expr -> SEMICOLON .)
+    LPARENT         reduce using rule 28 (sentencia_expr -> SEMICOLON .)
+    SI              reduce using rule 28 (sentencia_expr -> SEMICOLON .)
+    MIENTRAS        reduce using rule 28 (sentencia_expr -> SEMICOLON .)
+    REP             reduce using rule 28 (sentencia_expr -> SEMICOLON .)
+    RET             reduce using rule 28 (sentencia_expr -> SEMICOLON .)
+    ID              reduce using rule 28 (sentencia_expr -> SEMICOLON .)
+    NOT             reduce using rule 28 (sentencia_expr -> SEMICOLON .)
+    LBRACKET        reduce using rule 28 (sentencia_expr -> SEMICOLON .)
+    NUM             reduce using rule 28 (sentencia_expr -> SEMICOLON .)
+    SINO            reduce using rule 28 (sentencia_expr -> SEMICOLON .)
+
+
+state 45
+
+    (29) sentencia_seleccion -> SI . LBRACKET expresion RBRACKET sentencia
+    (30) sentencia_seleccion -> SI . LBRACKET expresion RBRACKET sentencia SINO sentencia
+
+    LBRACKET        shift and go to state 63
+
+
+state 46
+
+    (57) factor -> LBRACKET . expresion RBRACKET
+    (35) expresion -> . var ASSIGN expresion
+    (36) expresion -> . expresion_negada
+    (37) var -> . ID
+    (38) var -> . ID LTCOMMENT expresion RTCOMMENT
+    (39) expresion_negada -> . NOT LBRACKET expresion_logica RBRACKET
+    (40) expresion_negada -> . expresion_logica
+    (41) expresion_logica -> . expresion_logica AND expresion_simple
+    (42) expresion_logica -> . expresion_logica AND NOT LBRACKET expresion_simple RBRACKET
+    (43) expresion_logica -> . expresion_simple
+    (44) expresion_logica -> . NOT LBRACKET expresion_simple RBRACKET
+    (45) expresion_simple -> . expresion_simple relop expresion_aditiva
+    (46) expresion_simple -> . expresion_aditiva
+    (49) expresion_aditiva -> . expresion_aditiva addop term
+    (50) expresion_aditiva -> . term
+    (53) term -> . term mulop factor
+    (54) term -> . factor
+    (57) factor -> . LBRACKET expresion RBRACKET
+    (58) factor -> . var
+    (59) factor -> . invocacion
+    (60) factor -> . NUM
+    (61) invocacion -> . ID LBRACKET argumentos RBRACKET
+
+    ID              shift and go to state 52
+    NOT             shift and go to state 53
+    LBRACKET        shift and go to state 46
+    NUM             shift and go to state 60
+
+    expresion                      shift and go to state 64
+    var                            shift and go to state 50
+    expresion_negada               shift and go to state 51
+    expresion_logica               shift and go to state 54
+    expresion_simple               shift and go to state 55
+    expresion_aditiva              shift and go to state 56
+    term                           shift and go to state 57
+    factor                         shift and go to state 58
+    invocacion                     shift and go to state 59
+
+state 47
+
+    (31) sentencia_iteracion -> MIENTRAS . LBRACKET expresion RBRACKET sentencia
+
+    LBRACKET        shift and go to state 65
+
+
+state 48
+
+    (32) sentencia_iteracion -> REP . sentencia_comp
+    (17) sentencia_comp -> . LPARENT declaraciones_locales lista_sentencias RPARENT
+
+    LPARENT         shift and go to state 27
+
+    sentencia_comp                 shift and go to state 66
+
+state 49
+
+    (33) sentencia_retorno -> RET . SEMICOLON
+    (34) sentencia_retorno -> RET . expresion SEMICOLON
+    (35) expresion -> . var ASSIGN expresion
+    (36) expresion -> . expresion_negada
+    (37) var -> . ID
+    (38) var -> . ID LTCOMMENT expresion RTCOMMENT
+    (39) expresion_negada -> . NOT LBRACKET expresion_logica RBRACKET
+    (40) expresion_negada -> . expresion_logica
+    (41) expresion_logica -> . expresion_logica AND expresion_simple
+    (42) expresion_logica -> . expresion_logica AND NOT LBRACKET expresion_simple RBRACKET
+    (43) expresion_logica -> . expresion_simple
+    (44) expresion_logica -> . NOT LBRACKET expresion_simple RBRACKET
+    (45) expresion_simple -> . expresion_simple relop expresion_aditiva
+    (46) expresion_simple -> . expresion_aditiva
+    (49) expresion_aditiva -> . expresion_aditiva addop term
+    (50) expresion_aditiva -> . term
+    (53) term -> . term mulop factor
+    (54) term -> . factor
+    (57) factor -> . LBRACKET expresion RBRACKET
+    (58) factor -> . var
+    (59) factor -> . invocacion
+    (60) factor -> . NUM
+    (61) invocacion -> . ID LBRACKET argumentos RBRACKET
+
+    SEMICOLON       shift and go to state 67
+    ID              shift and go to state 52
+    NOT             shift and go to state 53
+    LBRACKET        shift and go to state 46
+    NUM             shift and go to state 60
+
+    expresion                      shift and go to state 68
+    var                            shift and go to state 50
+    expresion_negada               shift and go to state 51
+    expresion_logica               shift and go to state 54
+    expresion_simple               shift and go to state 55
+    expresion_aditiva              shift and go to state 56
+    term                           shift and go to state 57
+    factor                         shift and go to state 58
+    invocacion                     shift and go to state 59
+
+state 50
+
+    (35) expresion -> var . ASSIGN expresion
+    (58) factor -> var .
+
+    ASSIGN          shift and go to state 69
+    TIMES           reduce using rule 58 (factor -> var .)
+    DIVIDE          reduce using rule 58 (factor -> var .)
+    PLUS            reduce using rule 58 (factor -> var .)
+    MINUS           reduce using rule 58 (factor -> var .)
+    LT              reduce using rule 58 (factor -> var .)
+    EQ              reduce using rule 58 (factor -> var .)
+    AND             reduce using rule 58 (factor -> var .)
+    SEMICOLON       reduce using rule 58 (factor -> var .)
+    RBRACKET        reduce using rule 58 (factor -> var .)
+    RTCOMMENT       reduce using rule 58 (factor -> var .)
+    COMMA           reduce using rule 58 (factor -> var .)
+
+
+state 51
+
+    (36) expresion -> expresion_negada .
+
+    SEMICOLON       reduce using rule 36 (expresion -> expresion_negada .)
+    RBRACKET        reduce using rule 36 (expresion -> expresion_negada .)
+    RTCOMMENT       reduce using rule 36 (expresion -> expresion_negada .)
+    COMMA           reduce using rule 36 (expresion -> expresion_negada .)
+
+
+state 52
+
+    (37) var -> ID .
+    (38) var -> ID . LTCOMMENT expresion RTCOMMENT
+    (61) invocacion -> ID . LBRACKET argumentos RBRACKET
+
+    ASSIGN          reduce using rule 37 (var -> ID .)
+    TIMES           reduce using rule 37 (var -> ID .)
+    DIVIDE          reduce using rule 37 (var -> ID .)
+    PLUS            reduce using rule 37 (var -> ID .)
+    MINUS           reduce using rule 37 (var -> ID .)
+    LT              reduce using rule 37 (var -> ID .)
+    EQ              reduce using rule 37 (var -> ID .)
+    AND             reduce using rule 37 (var -> ID .)
+    SEMICOLON       reduce using rule 37 (var -> ID .)
+    RBRACKET        reduce using rule 37 (var -> ID .)
+    RTCOMMENT       reduce using rule 37 (var -> ID .)
+    COMMA           reduce using rule 37 (var -> ID .)
+    LTCOMMENT       shift and go to state 70
+    LBRACKET        shift and go to state 71
+
+
+state 53
+
+    (39) expresion_negada -> NOT . LBRACKET expresion_logica RBRACKET
+    (44) expresion_logica -> NOT . LBRACKET expresion_simple RBRACKET
+
+    LBRACKET        shift and go to state 72
+
+
+state 54
+
+    (40) expresion_negada -> expresion_logica .
+    (41) expresion_logica -> expresion_logica . AND expresion_simple
+    (42) expresion_logica -> expresion_logica . AND NOT LBRACKET expresion_simple RBRACKET
+
+    SEMICOLON       reduce using rule 40 (expresion_negada -> expresion_logica .)
+    RBRACKET        reduce using rule 40 (expresion_negada -> expresion_logica .)
+    RTCOMMENT       reduce using rule 40 (expresion_negada -> expresion_logica .)
+    COMMA           reduce using rule 40 (expresion_negada -> expresion_logica .)
+    AND             shift and go to state 73
+
+
+state 55
+
+    (43) expresion_logica -> expresion_simple .
+    (45) expresion_simple -> expresion_simple . relop expresion_aditiva
+    (47) relop -> . LT
+    (48) relop -> . EQ
+
+    AND             reduce using rule 43 (expresion_logica -> expresion_simple .)
+    SEMICOLON       reduce using rule 43 (expresion_logica -> expresion_simple .)
+    RBRACKET        reduce using rule 43 (expresion_logica -> expresion_simple .)
+    RTCOMMENT       reduce using rule 43 (expresion_logica -> expresion_simple .)
+    COMMA           reduce using rule 43 (expresion_logica -> expresion_simple .)
+    LT              shift and go to state 75
+    EQ              shift and go to state 76
+
+    relop                          shift and go to state 74
+
+state 56
+
+    (46) expresion_simple -> expresion_aditiva .
+    (49) expresion_aditiva -> expresion_aditiva . addop term
+    (51) addop -> . PLUS
+    (52) addop -> . MINUS
+
+    LT              reduce using rule 46 (expresion_simple -> expresion_aditiva .)
+    EQ              reduce using rule 46 (expresion_simple -> expresion_aditiva .)
+    AND             reduce using rule 46 (expresion_simple -> expresion_aditiva .)
+    SEMICOLON       reduce using rule 46 (expresion_simple -> expresion_aditiva .)
+    RBRACKET        reduce using rule 46 (expresion_simple -> expresion_aditiva .)
+    RTCOMMENT       reduce using rule 46 (expresion_simple -> expresion_aditiva .)
+    COMMA           reduce using rule 46 (expresion_simple -> expresion_aditiva .)
+    PLUS            shift and go to state 78
+    MINUS           shift and go to state 79
+
+    addop                          shift and go to state 77
+
+state 57
+
+    (50) expresion_aditiva -> term .
+    (53) term -> term . mulop factor
+    (55) mulop -> . TIMES
+    (56) mulop -> . DIVIDE
+
+    PLUS            reduce using rule 50 (expresion_aditiva -> term .)
+    MINUS           reduce using rule 50 (expresion_aditiva -> term .)
+    LT              reduce using rule 50 (expresion_aditiva -> term .)
+    EQ              reduce using rule 50 (expresion_aditiva -> term .)
+    AND             reduce using rule 50 (expresion_aditiva -> term .)
+    SEMICOLON       reduce using rule 50 (expresion_aditiva -> term .)
+    RBRACKET        reduce using rule 50 (expresion_aditiva -> term .)
+    RTCOMMENT       reduce using rule 50 (expresion_aditiva -> term .)
+    COMMA           reduce using rule 50 (expresion_aditiva -> term .)
+    TIMES           shift and go to state 81
+    DIVIDE          shift and go to state 82
+
+    mulop                          shift and go to state 80
+
+state 58
+
+    (54) term -> factor .
+
+    TIMES           reduce using rule 54 (term -> factor .)
+    DIVIDE          reduce using rule 54 (term -> factor .)
+    PLUS            reduce using rule 54 (term -> factor .)
+    MINUS           reduce using rule 54 (term -> factor .)
+    LT              reduce using rule 54 (term -> factor .)
+    EQ              reduce using rule 54 (term -> factor .)
+    AND             reduce using rule 54 (term -> factor .)
+    SEMICOLON       reduce using rule 54 (term -> factor .)
+    RBRACKET        reduce using rule 54 (term -> factor .)
+    RTCOMMENT       reduce using rule 54 (term -> factor .)
+    COMMA           reduce using rule 54 (term -> factor .)
+
+
+state 59
+
+    (59) factor -> invocacion .
+
+    TIMES           reduce using rule 59 (factor -> invocacion .)
+    DIVIDE          reduce using rule 59 (factor -> invocacion .)
+    PLUS            reduce using rule 59 (factor -> invocacion .)
+    MINUS           reduce using rule 59 (factor -> invocacion .)
+    LT              reduce using rule 59 (factor -> invocacion .)
+    EQ              reduce using rule 59 (factor -> invocacion .)
+    AND             reduce using rule 59 (factor -> invocacion .)
+    SEMICOLON       reduce using rule 59 (factor -> invocacion .)
+    RBRACKET        reduce using rule 59 (factor -> invocacion .)
+    RTCOMMENT       reduce using rule 59 (factor -> invocacion .)
+    COMMA           reduce using rule 59 (factor -> invocacion .)
+
+
+state 60
+
+    (60) factor -> NUM .
+
+    TIMES           reduce using rule 60 (factor -> NUM .)
+    DIVIDE          reduce using rule 60 (factor -> NUM .)
+    PLUS            reduce using rule 60 (factor -> NUM .)
+    MINUS           reduce using rule 60 (factor -> NUM .)
+    LT              reduce using rule 60 (factor -> NUM .)
+    EQ              reduce using rule 60 (factor -> NUM .)
+    AND             reduce using rule 60 (factor -> NUM .)
+    SEMICOLON       reduce using rule 60 (factor -> NUM .)
+    RBRACKET        reduce using rule 60 (factor -> NUM .)
+    RTCOMMENT       reduce using rule 60 (factor -> NUM .)
+    COMMA           reduce using rule 60 (factor -> NUM .)
+
+
+state 61
+
+    (6) declaracion_var -> def_tipo ID . SEMICOLON
+    (7) declaracion_var -> def_tipo ID . LTCOMMENT NUM RTCOMMENT SEMICOLON
+
+    SEMICOLON       shift and go to state 11
+    LTCOMMENT       shift and go to state 12
+
+
+state 62
+
+    (27) sentencia_expr -> expresion SEMICOLON .
+
+    RPARENT         reduce using rule 27 (sentencia_expr -> expresion SEMICOLON .)
+    SEMICOLON       reduce using rule 27 (sentencia_expr -> expresion SEMICOLON .)
+    LPARENT         reduce using rule 27 (sentencia_expr -> expresion SEMICOLON .)
+    SI              reduce using rule 27 (sentencia_expr -> expresion SEMICOLON .)
+    MIENTRAS        reduce using rule 27 (sentencia_expr -> expresion SEMICOLON .)
+    REP             reduce using rule 27 (sentencia_expr -> expresion SEMICOLON .)
+    RET             reduce using rule 27 (sentencia_expr -> expresion SEMICOLON .)
+    ID              reduce using rule 27 (sentencia_expr -> expresion SEMICOLON .)
+    NOT             reduce using rule 27 (sentencia_expr -> expresion SEMICOLON .)
+    LBRACKET        reduce using rule 27 (sentencia_expr -> expresion SEMICOLON .)
+    NUM             reduce using rule 27 (sentencia_expr -> expresion SEMICOLON .)
+    SINO            reduce using rule 27 (sentencia_expr -> expresion SEMICOLON .)
+
+
+state 63
+
+    (29) sentencia_seleccion -> SI LBRACKET . expresion RBRACKET sentencia
+    (30) sentencia_seleccion -> SI LBRACKET . expresion RBRACKET sentencia SINO sentencia
+    (35) expresion -> . var ASSIGN expresion
+    (36) expresion -> . expresion_negada
+    (37) var -> . ID
+    (38) var -> . ID LTCOMMENT expresion RTCOMMENT
+    (39) expresion_negada -> . NOT LBRACKET expresion_logica RBRACKET
+    (40) expresion_negada -> . expresion_logica
+    (41) expresion_logica -> . expresion_logica AND expresion_simple
+    (42) expresion_logica -> . expresion_logica AND NOT LBRACKET expresion_simple RBRACKET
+    (43) expresion_logica -> . expresion_simple
+    (44) expresion_logica -> . NOT LBRACKET expresion_simple RBRACKET
+    (45) expresion_simple -> . expresion_simple relop expresion_aditiva
+    (46) expresion_simple -> . expresion_aditiva
+    (49) expresion_aditiva -> . expresion_aditiva addop term
+    (50) expresion_aditiva -> . term
+    (53) term -> . term mulop factor
+    (54) term -> . factor
+    (57) factor -> . LBRACKET expresion RBRACKET
+    (58) factor -> . var
+    (59) factor -> . invocacion
+    (60) factor -> . NUM
+    (61) invocacion -> . ID LBRACKET argumentos RBRACKET
+
+    ID              shift and go to state 52
+    NOT             shift and go to state 53
+    LBRACKET        shift and go to state 46
+    NUM             shift and go to state 60
+
+    expresion                      shift and go to state 83
+    var                            shift and go to state 50
+    expresion_negada               shift and go to state 51
+    expresion_logica               shift and go to state 54
+    expresion_simple               shift and go to state 55
+    expresion_aditiva              shift and go to state 56
+    term                           shift and go to state 57
+    factor                         shift and go to state 58
+    invocacion                     shift and go to state 59
+
+state 64
+
+    (57) factor -> LBRACKET expresion . RBRACKET
+
+    RBRACKET        shift and go to state 84
+
+
+state 65
+
+    (31) sentencia_iteracion -> MIENTRAS LBRACKET . expresion RBRACKET sentencia
+    (35) expresion -> . var ASSIGN expresion
+    (36) expresion -> . expresion_negada
+    (37) var -> . ID
+    (38) var -> . ID LTCOMMENT expresion RTCOMMENT
+    (39) expresion_negada -> . NOT LBRACKET expresion_logica RBRACKET
+    (40) expresion_negada -> . expresion_logica
+    (41) expresion_logica -> . expresion_logica AND expresion_simple
+    (42) expresion_logica -> . expresion_logica AND NOT LBRACKET expresion_simple RBRACKET
+    (43) expresion_logica -> . expresion_simple
+    (44) expresion_logica -> . NOT LBRACKET expresion_simple RBRACKET
+    (45) expresion_simple -> . expresion_simple relop expresion_aditiva
+    (46) expresion_simple -> . expresion_aditiva
+    (49) expresion_aditiva -> . expresion_aditiva addop term
+    (50) expresion_aditiva -> . term
+    (53) term -> . term mulop factor
+    (54) term -> . factor
+    (57) factor -> . LBRACKET expresion RBRACKET
+    (58) factor -> . var
+    (59) factor -> . invocacion
+    (60) factor -> . NUM
+    (61) invocacion -> . ID LBRACKET argumentos RBRACKET
+
+    ID              shift and go to state 52
+    NOT             shift and go to state 53
+    LBRACKET        shift and go to state 46
+    NUM             shift and go to state 60
+
+    expresion                      shift and go to state 85
+    var                            shift and go to state 50
+    expresion_negada               shift and go to state 51
+    expresion_logica               shift and go to state 54
+    expresion_simple               shift and go to state 55
+    expresion_aditiva              shift and go to state 56
+    term                           shift and go to state 57
+    factor                         shift and go to state 58
+    invocacion                     shift and go to state 59
+
+state 66
+
+    (32) sentencia_iteracion -> REP sentencia_comp .
+
+    RPARENT         reduce using rule 32 (sentencia_iteracion -> REP sentencia_comp .)
+    SEMICOLON       reduce using rule 32 (sentencia_iteracion -> REP sentencia_comp .)
+    LPARENT         reduce using rule 32 (sentencia_iteracion -> REP sentencia_comp .)
+    SI              reduce using rule 32 (sentencia_iteracion -> REP sentencia_comp .)
+    MIENTRAS        reduce using rule 32 (sentencia_iteracion -> REP sentencia_comp .)
+    REP             reduce using rule 32 (sentencia_iteracion -> REP sentencia_comp .)
+    RET             reduce using rule 32 (sentencia_iteracion -> REP sentencia_comp .)
+    ID              reduce using rule 32 (sentencia_iteracion -> REP sentencia_comp .)
+    NOT             reduce using rule 32 (sentencia_iteracion -> REP sentencia_comp .)
+    LBRACKET        reduce using rule 32 (sentencia_iteracion -> REP sentencia_comp .)
+    NUM             reduce using rule 32 (sentencia_iteracion -> REP sentencia_comp .)
+    SINO            reduce using rule 32 (sentencia_iteracion -> REP sentencia_comp .)
+
+
+state 67
+
+    (33) sentencia_retorno -> RET SEMICOLON .
+
+    RPARENT         reduce using rule 33 (sentencia_retorno -> RET SEMICOLON .)
+    SEMICOLON       reduce using rule 33 (sentencia_retorno -> RET SEMICOLON .)
+    LPARENT         reduce using rule 33 (sentencia_retorno -> RET SEMICOLON .)
+    SI              reduce using rule 33 (sentencia_retorno -> RET SEMICOLON .)
+    MIENTRAS        reduce using rule 33 (sentencia_retorno -> RET SEMICOLON .)
+    REP             reduce using rule 33 (sentencia_retorno -> RET SEMICOLON .)
+    RET             reduce using rule 33 (sentencia_retorno -> RET SEMICOLON .)
+    ID              reduce using rule 33 (sentencia_retorno -> RET SEMICOLON .)
+    NOT             reduce using rule 33 (sentencia_retorno -> RET SEMICOLON .)
+    LBRACKET        reduce using rule 33 (sentencia_retorno -> RET SEMICOLON .)
+    NUM             reduce using rule 33 (sentencia_retorno -> RET SEMICOLON .)
+    SINO            reduce using rule 33 (sentencia_retorno -> RET SEMICOLON .)
+
+
+state 68
+
+    (34) sentencia_retorno -> RET expresion . SEMICOLON
+
+    SEMICOLON       shift and go to state 86
+
+
+state 69
+
+    (35) expresion -> var ASSIGN . expresion
+    (35) expresion -> . var ASSIGN expresion
+    (36) expresion -> . expresion_negada
+    (37) var -> . ID
+    (38) var -> . ID LTCOMMENT expresion RTCOMMENT
+    (39) expresion_negada -> . NOT LBRACKET expresion_logica RBRACKET
+    (40) expresion_negada -> . expresion_logica
+    (41) expresion_logica -> . expresion_logica AND expresion_simple
+    (42) expresion_logica -> . expresion_logica AND NOT LBRACKET expresion_simple RBRACKET
+    (43) expresion_logica -> . expresion_simple
+    (44) expresion_logica -> . NOT LBRACKET expresion_simple RBRACKET
+    (45) expresion_simple -> . expresion_simple relop expresion_aditiva
+    (46) expresion_simple -> . expresion_aditiva
+    (49) expresion_aditiva -> . expresion_aditiva addop term
+    (50) expresion_aditiva -> . term
+    (53) term -> . term mulop factor
+    (54) term -> . factor
+    (57) factor -> . LBRACKET expresion RBRACKET
+    (58) factor -> . var
+    (59) factor -> . invocacion
+    (60) factor -> . NUM
+    (61) invocacion -> . ID LBRACKET argumentos RBRACKET
+
+    ID              shift and go to state 52
+    NOT             shift and go to state 53
+    LBRACKET        shift and go to state 46
+    NUM             shift and go to state 60
+
+    var                            shift and go to state 50
+    expresion                      shift and go to state 87
+    expresion_negada               shift and go to state 51
+    expresion_logica               shift and go to state 54
+    expresion_simple               shift and go to state 55
+    expresion_aditiva              shift and go to state 56
+    term                           shift and go to state 57
+    factor                         shift and go to state 58
+    invocacion                     shift and go to state 59
+
+state 70
+
+    (38) var -> ID LTCOMMENT . expresion RTCOMMENT
+    (35) expresion -> . var ASSIGN expresion
+    (36) expresion -> . expresion_negada
+    (37) var -> . ID
+    (38) var -> . ID LTCOMMENT expresion RTCOMMENT
+    (39) expresion_negada -> . NOT LBRACKET expresion_logica RBRACKET
+    (40) expresion_negada -> . expresion_logica
+    (41) expresion_logica -> . expresion_logica AND expresion_simple
+    (42) expresion_logica -> . expresion_logica AND NOT LBRACKET expresion_simple RBRACKET
+    (43) expresion_logica -> . expresion_simple
+    (44) expresion_logica -> . NOT LBRACKET expresion_simple RBRACKET
+    (45) expresion_simple -> . expresion_simple relop expresion_aditiva
+    (46) expresion_simple -> . expresion_aditiva
+    (49) expresion_aditiva -> . expresion_aditiva addop term
+    (50) expresion_aditiva -> . term
+    (53) term -> . term mulop factor
+    (54) term -> . factor
+    (57) factor -> . LBRACKET expresion RBRACKET
+    (58) factor -> . var
+    (59) factor -> . invocacion
+    (60) factor -> . NUM
+    (61) invocacion -> . ID LBRACKET argumentos RBRACKET
+
+    ID              shift and go to state 52
+    NOT             shift and go to state 53
+    LBRACKET        shift and go to state 46
+    NUM             shift and go to state 60
+
+    expresion                      shift and go to state 88
+    var                            shift and go to state 50
+    expresion_negada               shift and go to state 51
+    expresion_logica               shift and go to state 54
+    expresion_simple               shift and go to state 55
+    expresion_aditiva              shift and go to state 56
+    term                           shift and go to state 57
+    factor                         shift and go to state 58
+    invocacion                     shift and go to state 59
+
+state 71
+
+    (61) invocacion -> ID LBRACKET . argumentos RBRACKET
+    (62) argumentos -> . lista_arg
+    (63) argumentos -> . vacio
+    (64) lista_arg -> . lista_arg COMMA expresion
+    (65) lista_arg -> . expresion
+    (66) vacio -> .
+    (35) expresion -> . var ASSIGN expresion
+    (36) expresion -> . expresion_negada
+    (37) var -> . ID
+    (38) var -> . ID LTCOMMENT expresion RTCOMMENT
+    (39) expresion_negada -> . NOT LBRACKET expresion_logica RBRACKET
+    (40) expresion_negada -> . expresion_logica
+    (41) expresion_logica -> . expresion_logica AND expresion_simple
+    (42) expresion_logica -> . expresion_logica AND NOT LBRACKET expresion_simple RBRACKET
+    (43) expresion_logica -> . expresion_simple
+    (44) expresion_logica -> . NOT LBRACKET expresion_simple RBRACKET
+    (45) expresion_simple -> . expresion_simple relop expresion_aditiva
+    (46) expresion_simple -> . expresion_aditiva
+    (49) expresion_aditiva -> . expresion_aditiva addop term
+    (50) expresion_aditiva -> . term
+    (53) term -> . term mulop factor
+    (54) term -> . factor
+    (57) factor -> . LBRACKET expresion RBRACKET
+    (58) factor -> . var
+    (59) factor -> . invocacion
+    (60) factor -> . NUM
+    (61) invocacion -> . ID LBRACKET argumentos RBRACKET
+
+    RBRACKET        reduce using rule 66 (vacio -> .)
+    ID              shift and go to state 52
+    NOT             shift and go to state 53
+    LBRACKET        shift and go to state 46
+    NUM             shift and go to state 60
+
+    argumentos                     shift and go to state 89
+    lista_arg                      shift and go to state 90
+    vacio                          shift and go to state 91
+    expresion                      shift and go to state 92
+    var                            shift and go to state 50
+    expresion_negada               shift and go to state 51
+    expresion_logica               shift and go to state 54
+    expresion_simple               shift and go to state 55
+    expresion_aditiva              shift and go to state 56
+    term                           shift and go to state 57
+    factor                         shift and go to state 58
+    invocacion                     shift and go to state 59
+
+state 72
+
+    (39) expresion_negada -> NOT LBRACKET . expresion_logica RBRACKET
+    (44) expresion_logica -> NOT LBRACKET . expresion_simple RBRACKET
+    (41) expresion_logica -> . expresion_logica AND expresion_simple
+    (42) expresion_logica -> . expresion_logica AND NOT LBRACKET expresion_simple RBRACKET
+    (43) expresion_logica -> . expresion_simple
+    (44) expresion_logica -> . NOT LBRACKET expresion_simple RBRACKET
+    (45) expresion_simple -> . expresion_simple relop expresion_aditiva
+    (46) expresion_simple -> . expresion_aditiva
+    (49) expresion_aditiva -> . expresion_aditiva addop term
+    (50) expresion_aditiva -> . term
+    (53) term -> . term mulop factor
+    (54) term -> . factor
+    (57) factor -> . LBRACKET expresion RBRACKET
+    (58) factor -> . var
+    (59) factor -> . invocacion
+    (60) factor -> . NUM
+    (37) var -> . ID
+    (38) var -> . ID LTCOMMENT expresion RTCOMMENT
+    (61) invocacion -> . ID LBRACKET argumentos RBRACKET
+
+    NOT             shift and go to state 93
+    LBRACKET        shift and go to state 46
+    NUM             shift and go to state 60
+    ID              shift and go to state 52
+
+    expresion_logica               shift and go to state 94
+    expresion_simple               shift and go to state 95
+    expresion_aditiva              shift and go to state 56
+    term                           shift and go to state 57
+    factor                         shift and go to state 58
+    var                            shift and go to state 96
+    invocacion                     shift and go to state 59
+
+state 73
+
+    (41) expresion_logica -> expresion_logica AND . expresion_simple
+    (42) expresion_logica -> expresion_logica AND . NOT LBRACKET expresion_simple RBRACKET
+    (45) expresion_simple -> . expresion_simple relop expresion_aditiva
+    (46) expresion_simple -> . expresion_aditiva
+    (49) expresion_aditiva -> . expresion_aditiva addop term
+    (50) expresion_aditiva -> . term
+    (53) term -> . term mulop factor
+    (54) term -> . factor
+    (57) factor -> . LBRACKET expresion RBRACKET
+    (58) factor -> . var
+    (59) factor -> . invocacion
+    (60) factor -> . NUM
+    (37) var -> . ID
+    (38) var -> . ID LTCOMMENT expresion RTCOMMENT
+    (61) invocacion -> . ID LBRACKET argumentos RBRACKET
+
+    NOT             shift and go to state 98
+    LBRACKET        shift and go to state 46
+    NUM             shift and go to state 60
+    ID              shift and go to state 52
+
+    expresion_simple               shift and go to state 97
+    expresion_aditiva              shift and go to state 56
+    term                           shift and go to state 57
+    factor                         shift and go to state 58
+    var                            shift and go to state 96
+    invocacion                     shift and go to state 59
+
+state 74
+
+    (45) expresion_simple -> expresion_simple relop . expresion_aditiva
+    (49) expresion_aditiva -> . expresion_aditiva addop term
+    (50) expresion_aditiva -> . term
+    (53) term -> . term mulop factor
+    (54) term -> . factor
+    (57) factor -> . LBRACKET expresion RBRACKET
+    (58) factor -> . var
+    (59) factor -> . invocacion
+    (60) factor -> . NUM
+    (37) var -> . ID
+    (38) var -> . ID LTCOMMENT expresion RTCOMMENT
+    (61) invocacion -> . ID LBRACKET argumentos RBRACKET
+
+    LBRACKET        shift and go to state 46
+    NUM             shift and go to state 60
+    ID              shift and go to state 52
+
+    expresion_aditiva              shift and go to state 99
+    term                           shift and go to state 57
+    factor                         shift and go to state 58
+    var                            shift and go to state 96
+    invocacion                     shift and go to state 59
+
+state 75
+
+    (47) relop -> LT .
+
+    LBRACKET        reduce using rule 47 (relop -> LT .)
+    NUM             reduce using rule 47 (relop -> LT .)
+    ID              reduce using rule 47 (relop -> LT .)
+
+
+state 76
+
+    (48) relop -> EQ .
+
+    LBRACKET        reduce using rule 48 (relop -> EQ .)
+    NUM             reduce using rule 48 (relop -> EQ .)
+    ID              reduce using rule 48 (relop -> EQ .)
+
+
+state 77
+
+    (49) expresion_aditiva -> expresion_aditiva addop . term
+    (53) term -> . term mulop factor
+    (54) term -> . factor
+    (57) factor -> . LBRACKET expresion RBRACKET
+    (58) factor -> . var
+    (59) factor -> . invocacion
+    (60) factor -> . NUM
+    (37) var -> . ID
+    (38) var -> . ID LTCOMMENT expresion RTCOMMENT
+    (61) invocacion -> . ID LBRACKET argumentos RBRACKET
+
+    LBRACKET        shift and go to state 46
+    NUM             shift and go to state 60
+    ID              shift and go to state 52
+
+    term                           shift and go to state 100
+    factor                         shift and go to state 58
+    var                            shift and go to state 96
+    invocacion                     shift and go to state 59
+
+state 78
+
+    (51) addop -> PLUS .
+
+    LBRACKET        reduce using rule 51 (addop -> PLUS .)
+    NUM             reduce using rule 51 (addop -> PLUS .)
+    ID              reduce using rule 51 (addop -> PLUS .)
+
+
+state 79
+
+    (52) addop -> MINUS .
+
+    LBRACKET        reduce using rule 52 (addop -> MINUS .)
+    NUM             reduce using rule 52 (addop -> MINUS .)
+    ID              reduce using rule 52 (addop -> MINUS .)
+
+
+state 80
+
+    (53) term -> term mulop . factor
+    (57) factor -> . LBRACKET expresion RBRACKET
+    (58) factor -> . var
+    (59) factor -> . invocacion
+    (60) factor -> . NUM
+    (37) var -> . ID
+    (38) var -> . ID LTCOMMENT expresion RTCOMMENT
+    (61) invocacion -> . ID LBRACKET argumentos RBRACKET
+
+    LBRACKET        shift and go to state 46
+    NUM             shift and go to state 60
+    ID              shift and go to state 52
+
+    factor                         shift and go to state 101
+    var                            shift and go to state 96
+    invocacion                     shift and go to state 59
+
+state 81
+
+    (55) mulop -> TIMES .
+
+    LBRACKET        reduce using rule 55 (mulop -> TIMES .)
+    NUM             reduce using rule 55 (mulop -> TIMES .)
+    ID              reduce using rule 55 (mulop -> TIMES .)
+
+
+state 82
+
+    (56) mulop -> DIVIDE .
+
+    LBRACKET        reduce using rule 56 (mulop -> DIVIDE .)
+    NUM             reduce using rule 56 (mulop -> DIVIDE .)
+    ID              reduce using rule 56 (mulop -> DIVIDE .)
+
+
+state 83
+
+    (29) sentencia_seleccion -> SI LBRACKET expresion . RBRACKET sentencia
+    (30) sentencia_seleccion -> SI LBRACKET expresion . RBRACKET sentencia SINO sentencia
+
+    RBRACKET        shift and go to state 102
+
+
+state 84
+
+    (57) factor -> LBRACKET expresion RBRACKET .
+
+    TIMES           reduce using rule 57 (factor -> LBRACKET expresion RBRACKET .)
+    DIVIDE          reduce using rule 57 (factor -> LBRACKET expresion RBRACKET .)
+    PLUS            reduce using rule 57 (factor -> LBRACKET expresion RBRACKET .)
+    MINUS           reduce using rule 57 (factor -> LBRACKET expresion RBRACKET .)
+    LT              reduce using rule 57 (factor -> LBRACKET expresion RBRACKET .)
+    EQ              reduce using rule 57 (factor -> LBRACKET expresion RBRACKET .)
+    AND             reduce using rule 57 (factor -> LBRACKET expresion RBRACKET .)
+    SEMICOLON       reduce using rule 57 (factor -> LBRACKET expresion RBRACKET .)
+    RBRACKET        reduce using rule 57 (factor -> LBRACKET expresion RBRACKET .)
+    RTCOMMENT       reduce using rule 57 (factor -> LBRACKET expresion RBRACKET .)
+    COMMA           reduce using rule 57 (factor -> LBRACKET expresion RBRACKET .)
+
+
+state 85
+
+    (31) sentencia_iteracion -> MIENTRAS LBRACKET expresion . RBRACKET sentencia
+
+    RBRACKET        shift and go to state 103
+
+
+state 86
+
+    (34) sentencia_retorno -> RET expresion SEMICOLON .
+
+    RPARENT         reduce using rule 34 (sentencia_retorno -> RET expresion SEMICOLON .)
+    SEMICOLON       reduce using rule 34 (sentencia_retorno -> RET expresion SEMICOLON .)
+    LPARENT         reduce using rule 34 (sentencia_retorno -> RET expresion SEMICOLON .)
+    SI              reduce using rule 34 (sentencia_retorno -> RET expresion SEMICOLON .)
+    MIENTRAS        reduce using rule 34 (sentencia_retorno -> RET expresion SEMICOLON .)
+    REP             reduce using rule 34 (sentencia_retorno -> RET expresion SEMICOLON .)
+    RET             reduce using rule 34 (sentencia_retorno -> RET expresion SEMICOLON .)
+    ID              reduce using rule 34 (sentencia_retorno -> RET expresion SEMICOLON .)
+    NOT             reduce using rule 34 (sentencia_retorno -> RET expresion SEMICOLON .)
+    LBRACKET        reduce using rule 34 (sentencia_retorno -> RET expresion SEMICOLON .)
+    NUM             reduce using rule 34 (sentencia_retorno -> RET expresion SEMICOLON .)
+    SINO            reduce using rule 34 (sentencia_retorno -> RET expresion SEMICOLON .)
+
+
+state 87
+
+    (35) expresion -> var ASSIGN expresion .
+
+    SEMICOLON       reduce using rule 35 (expresion -> var ASSIGN expresion .)
+    RBRACKET        reduce using rule 35 (expresion -> var ASSIGN expresion .)
+    RTCOMMENT       reduce using rule 35 (expresion -> var ASSIGN expresion .)
+    COMMA           reduce using rule 35 (expresion -> var ASSIGN expresion .)
+
+
+state 88
+
+    (38) var -> ID LTCOMMENT expresion . RTCOMMENT
+
+    RTCOMMENT       shift and go to state 104
+
+
+state 89
+
+    (61) invocacion -> ID LBRACKET argumentos . RBRACKET
+
+    RBRACKET        shift and go to state 105
+
+
+state 90
+
+    (62) argumentos -> lista_arg .
+    (64) lista_arg -> lista_arg . COMMA expresion
+
+    RBRACKET        reduce using rule 62 (argumentos -> lista_arg .)
+    COMMA           shift and go to state 106
+
+
+state 91
+
+    (63) argumentos -> vacio .
+
+    RBRACKET        reduce using rule 63 (argumentos -> vacio .)
+
+
+state 92
+
+    (65) lista_arg -> expresion .
+
+    COMMA           reduce using rule 65 (lista_arg -> expresion .)
+    RBRACKET        reduce using rule 65 (lista_arg -> expresion .)
+
+
+state 93
+
+    (44) expresion_logica -> NOT . LBRACKET expresion_simple RBRACKET
+
+    LBRACKET        shift and go to state 107
+
+
+state 94
+
+    (39) expresion_negada -> NOT LBRACKET expresion_logica . RBRACKET
+    (41) expresion_logica -> expresion_logica . AND expresion_simple
+    (42) expresion_logica -> expresion_logica . AND NOT LBRACKET expresion_simple RBRACKET
+
+    RBRACKET        shift and go to state 108
+    AND             shift and go to state 73
+
+
+state 95
+
+    (44) expresion_logica -> NOT LBRACKET expresion_simple . RBRACKET
+    (43) expresion_logica -> expresion_simple .
+    (45) expresion_simple -> expresion_simple . relop expresion_aditiva
+    (47) relop -> . LT
+    (48) relop -> . EQ
+
+  ! shift/reduce conflict for RBRACKET resolved as shift
+    RBRACKET        shift and go to state 109
+    AND             reduce using rule 43 (expresion_logica -> expresion_simple .)
+    LT              shift and go to state 75
+    EQ              shift and go to state 76
+
+  ! RBRACKET        [ reduce using rule 43 (expresion_logica -> expresion_simple .) ]
+
+    relop                          shift and go to state 74
+
+state 96
+
+    (58) factor -> var .
+
+    TIMES           reduce using rule 58 (factor -> var .)
+    DIVIDE          reduce using rule 58 (factor -> var .)
+    PLUS            reduce using rule 58 (factor -> var .)
+    MINUS           reduce using rule 58 (factor -> var .)
+    RBRACKET        reduce using rule 58 (factor -> var .)
+    LT              reduce using rule 58 (factor -> var .)
+    EQ              reduce using rule 58 (factor -> var .)
+    AND             reduce using rule 58 (factor -> var .)
+    SEMICOLON       reduce using rule 58 (factor -> var .)
+    RTCOMMENT       reduce using rule 58 (factor -> var .)
+    COMMA           reduce using rule 58 (factor -> var .)
+
+
+state 97
+
+    (41) expresion_logica -> expresion_logica AND expresion_simple .
+    (45) expresion_simple -> expresion_simple . relop expresion_aditiva
+    (47) relop -> . LT
+    (48) relop -> . EQ
+
+    AND             reduce using rule 41 (expresion_logica -> expresion_logica AND expresion_simple .)
+    SEMICOLON       reduce using rule 41 (expresion_logica -> expresion_logica AND expresion_simple .)
+    RBRACKET        reduce using rule 41 (expresion_logica -> expresion_logica AND expresion_simple .)
+    RTCOMMENT       reduce using rule 41 (expresion_logica -> expresion_logica AND expresion_simple .)
+    COMMA           reduce using rule 41 (expresion_logica -> expresion_logica AND expresion_simple .)
+    LT              shift and go to state 75
+    EQ              shift and go to state 76
+
+    relop                          shift and go to state 74
+
+state 98
+
+    (42) expresion_logica -> expresion_logica AND NOT . LBRACKET expresion_simple RBRACKET
+
+    LBRACKET        shift and go to state 110
+
+
+state 99
+
+    (45) expresion_simple -> expresion_simple relop expresion_aditiva .
+    (49) expresion_aditiva -> expresion_aditiva . addop term
+    (51) addop -> . PLUS
+    (52) addop -> . MINUS
+
+    LT              reduce using rule 45 (expresion_simple -> expresion_simple relop expresion_aditiva .)
+    EQ              reduce using rule 45 (expresion_simple -> expresion_simple relop expresion_aditiva .)
+    AND             reduce using rule 45 (expresion_simple -> expresion_simple relop expresion_aditiva .)
+    SEMICOLON       reduce using rule 45 (expresion_simple -> expresion_simple relop expresion_aditiva .)
+    RBRACKET        reduce using rule 45 (expresion_simple -> expresion_simple relop expresion_aditiva .)
+    RTCOMMENT       reduce using rule 45 (expresion_simple -> expresion_simple relop expresion_aditiva .)
+    COMMA           reduce using rule 45 (expresion_simple -> expresion_simple relop expresion_aditiva .)
+    PLUS            shift and go to state 78
+    MINUS           shift and go to state 79
+
+    addop                          shift and go to state 77
+
+state 100
+
+    (49) expresion_aditiva -> expresion_aditiva addop term .
+    (53) term -> term . mulop factor
+    (55) mulop -> . TIMES
+    (56) mulop -> . DIVIDE
+
+    PLUS            reduce using rule 49 (expresion_aditiva -> expresion_aditiva addop term .)
+    MINUS           reduce using rule 49 (expresion_aditiva -> expresion_aditiva addop term .)
+    LT              reduce using rule 49 (expresion_aditiva -> expresion_aditiva addop term .)
+    EQ              reduce using rule 49 (expresion_aditiva -> expresion_aditiva addop term .)
+    AND             reduce using rule 49 (expresion_aditiva -> expresion_aditiva addop term .)
+    SEMICOLON       reduce using rule 49 (expresion_aditiva -> expresion_aditiva addop term .)
+    RBRACKET        reduce using rule 49 (expresion_aditiva -> expresion_aditiva addop term .)
+    RTCOMMENT       reduce using rule 49 (expresion_aditiva -> expresion_aditiva addop term .)
+    COMMA           reduce using rule 49 (expresion_aditiva -> expresion_aditiva addop term .)
+    TIMES           shift and go to state 81
+    DIVIDE          shift and go to state 82
+
+    mulop                          shift and go to state 80
+
+state 101
+
+    (53) term -> term mulop factor .
+
+    TIMES           reduce using rule 53 (term -> term mulop factor .)
+    DIVIDE          reduce using rule 53 (term -> term mulop factor .)
+    PLUS            reduce using rule 53 (term -> term mulop factor .)
+    MINUS           reduce using rule 53 (term -> term mulop factor .)
+    LT              reduce using rule 53 (term -> term mulop factor .)
+    EQ              reduce using rule 53 (term -> term mulop factor .)
+    AND             reduce using rule 53 (term -> term mulop factor .)
+    SEMICOLON       reduce using rule 53 (term -> term mulop factor .)
+    RBRACKET        reduce using rule 53 (term -> term mulop factor .)
+    RTCOMMENT       reduce using rule 53 (term -> term mulop factor .)
+    COMMA           reduce using rule 53 (term -> term mulop factor .)
+
+
+state 102
+
+    (29) sentencia_seleccion -> SI LBRACKET expresion RBRACKET . sentencia
+    (30) sentencia_seleccion -> SI LBRACKET expresion RBRACKET . sentencia SINO sentencia
+    (22) sentencia -> . sentencia_expr
+    (23) sentencia -> . sentencia_comp
+    (24) sentencia -> . sentencia_seleccion
+    (25) sentencia -> . sentencia_iteracion
+    (26) sentencia -> . sentencia_retorno
+    (27) sentencia_expr -> . expresion SEMICOLON
+    (28) sentencia_expr -> . SEMICOLON
+    (17) sentencia_comp -> . LPARENT declaraciones_locales lista_sentencias RPARENT
+    (29) sentencia_seleccion -> . SI LBRACKET expresion RBRACKET sentencia
+    (30) sentencia_seleccion -> . SI LBRACKET expresion RBRACKET sentencia SINO sentencia
+    (31) sentencia_iteracion -> . MIENTRAS LBRACKET expresion RBRACKET sentencia
+    (32) sentencia_iteracion -> . REP sentencia_comp
+    (33) sentencia_retorno -> . RET SEMICOLON
+    (34) sentencia_retorno -> . RET expresion SEMICOLON
+    (35) expresion -> . var ASSIGN expresion
+    (36) expresion -> . expresion_negada
+    (37) var -> . ID
+    (38) var -> . ID LTCOMMENT expresion RTCOMMENT
+    (39) expresion_negada -> . NOT LBRACKET expresion_logica RBRACKET
+    (40) expresion_negada -> . expresion_logica
+    (41) expresion_logica -> . expresion_logica AND expresion_simple
+    (42) expresion_logica -> . expresion_logica AND NOT LBRACKET expresion_simple RBRACKET
+    (43) expresion_logica -> . expresion_simple
+    (44) expresion_logica -> . NOT LBRACKET expresion_simple RBRACKET
+    (45) expresion_simple -> . expresion_simple relop expresion_aditiva
+    (46) expresion_simple -> . expresion_aditiva
+    (49) expresion_aditiva -> . expresion_aditiva addop term
+    (50) expresion_aditiva -> . term
+    (53) term -> . term mulop factor
+    (54) term -> . factor
+    (57) factor -> . LBRACKET expresion RBRACKET
+    (58) factor -> . var
+    (59) factor -> . invocacion
+    (60) factor -> . NUM
+    (61) invocacion -> . ID LBRACKET argumentos RBRACKET
+
+    SEMICOLON       shift and go to state 44
+    LPARENT         shift and go to state 27
+    SI              shift and go to state 45
+    MIENTRAS        shift and go to state 47
+    REP             shift and go to state 48
+    RET             shift and go to state 49
+    ID              shift and go to state 52
+    NOT             shift and go to state 53
+    LBRACKET        shift and go to state 46
+    NUM             shift and go to state 60
+
+    expresion                      shift and go to state 43
+    sentencia                      shift and go to state 111
+    sentencia_expr                 shift and go to state 38
+    sentencia_comp                 shift and go to state 39
+    sentencia_seleccion            shift and go to state 40
+    sentencia_iteracion            shift and go to state 41
+    sentencia_retorno              shift and go to state 42
+    var                            shift and go to state 50
+    expresion_negada               shift and go to state 51
+    expresion_logica               shift and go to state 54
+    expresion_simple               shift and go to state 55
+    expresion_aditiva              shift and go to state 56
+    term                           shift and go to state 57
+    factor                         shift and go to state 58
+    invocacion                     shift and go to state 59
+
+state 103
+
+    (31) sentencia_iteracion -> MIENTRAS LBRACKET expresion RBRACKET . sentencia
+    (22) sentencia -> . sentencia_expr
+    (23) sentencia -> . sentencia_comp
+    (24) sentencia -> . sentencia_seleccion
+    (25) sentencia -> . sentencia_iteracion
+    (26) sentencia -> . sentencia_retorno
+    (27) sentencia_expr -> . expresion SEMICOLON
+    (28) sentencia_expr -> . SEMICOLON
+    (17) sentencia_comp -> . LPARENT declaraciones_locales lista_sentencias RPARENT
+    (29) sentencia_seleccion -> . SI LBRACKET expresion RBRACKET sentencia
+    (30) sentencia_seleccion -> . SI LBRACKET expresion RBRACKET sentencia SINO sentencia
+    (31) sentencia_iteracion -> . MIENTRAS LBRACKET expresion RBRACKET sentencia
+    (32) sentencia_iteracion -> . REP sentencia_comp
+    (33) sentencia_retorno -> . RET SEMICOLON
+    (34) sentencia_retorno -> . RET expresion SEMICOLON
+    (35) expresion -> . var ASSIGN expresion
+    (36) expresion -> . expresion_negada
+    (37) var -> . ID
+    (38) var -> . ID LTCOMMENT expresion RTCOMMENT
+    (39) expresion_negada -> . NOT LBRACKET expresion_logica RBRACKET
+    (40) expresion_negada -> . expresion_logica
+    (41) expresion_logica -> . expresion_logica AND expresion_simple
+    (42) expresion_logica -> . expresion_logica AND NOT LBRACKET expresion_simple RBRACKET
+    (43) expresion_logica -> . expresion_simple
+    (44) expresion_logica -> . NOT LBRACKET expresion_simple RBRACKET
+    (45) expresion_simple -> . expresion_simple relop expresion_aditiva
+    (46) expresion_simple -> . expresion_aditiva
+    (49) expresion_aditiva -> . expresion_aditiva addop term
+    (50) expresion_aditiva -> . term
+    (53) term -> . term mulop factor
+    (54) term -> . factor
+    (57) factor -> . LBRACKET expresion RBRACKET
+    (58) factor -> . var
+    (59) factor -> . invocacion
+    (60) factor -> . NUM
+    (61) invocacion -> . ID LBRACKET argumentos RBRACKET
+
+    SEMICOLON       shift and go to state 44
+    LPARENT         shift and go to state 27
+    SI              shift and go to state 45
+    MIENTRAS        shift and go to state 47
+    REP             shift and go to state 48
+    RET             shift and go to state 49
+    ID              shift and go to state 52
+    NOT             shift and go to state 53
+    LBRACKET        shift and go to state 46
+    NUM             shift and go to state 60
+
+    expresion                      shift and go to state 43
+    sentencia                      shift and go to state 112
+    sentencia_expr                 shift and go to state 38
+    sentencia_comp                 shift and go to state 39
+    sentencia_seleccion            shift and go to state 40
+    sentencia_iteracion            shift and go to state 41
+    sentencia_retorno              shift and go to state 42
+    var                            shift and go to state 50
+    expresion_negada               shift and go to state 51
+    expresion_logica               shift and go to state 54
+    expresion_simple               shift and go to state 55
+    expresion_aditiva              shift and go to state 56
+    term                           shift and go to state 57
+    factor                         shift and go to state 58
+    invocacion                     shift and go to state 59
+
+state 104
+
+    (38) var -> ID LTCOMMENT expresion RTCOMMENT .
+
+    ASSIGN          reduce using rule 38 (var -> ID LTCOMMENT expresion RTCOMMENT .)
+    TIMES           reduce using rule 38 (var -> ID LTCOMMENT expresion RTCOMMENT .)
+    DIVIDE          reduce using rule 38 (var -> ID LTCOMMENT expresion RTCOMMENT .)
+    PLUS            reduce using rule 38 (var -> ID LTCOMMENT expresion RTCOMMENT .)
+    MINUS           reduce using rule 38 (var -> ID LTCOMMENT expresion RTCOMMENT .)
+    LT              reduce using rule 38 (var -> ID LTCOMMENT expresion RTCOMMENT .)
+    EQ              reduce using rule 38 (var -> ID LTCOMMENT expresion RTCOMMENT .)
+    AND             reduce using rule 38 (var -> ID LTCOMMENT expresion RTCOMMENT .)
+    SEMICOLON       reduce using rule 38 (var -> ID LTCOMMENT expresion RTCOMMENT .)
+    RBRACKET        reduce using rule 38 (var -> ID LTCOMMENT expresion RTCOMMENT .)
+    RTCOMMENT       reduce using rule 38 (var -> ID LTCOMMENT expresion RTCOMMENT .)
+    COMMA           reduce using rule 38 (var -> ID LTCOMMENT expresion RTCOMMENT .)
+
+
+state 105
+
+    (61) invocacion -> ID LBRACKET argumentos RBRACKET .
+
+    TIMES           reduce using rule 61 (invocacion -> ID LBRACKET argumentos RBRACKET .)
+    DIVIDE          reduce using rule 61 (invocacion -> ID LBRACKET argumentos RBRACKET .)
+    PLUS            reduce using rule 61 (invocacion -> ID LBRACKET argumentos RBRACKET .)
+    MINUS           reduce using rule 61 (invocacion -> ID LBRACKET argumentos RBRACKET .)
+    LT              reduce using rule 61 (invocacion -> ID LBRACKET argumentos RBRACKET .)
+    EQ              reduce using rule 61 (invocacion -> ID LBRACKET argumentos RBRACKET .)
+    AND             reduce using rule 61 (invocacion -> ID LBRACKET argumentos RBRACKET .)
+    SEMICOLON       reduce using rule 61 (invocacion -> ID LBRACKET argumentos RBRACKET .)
+    RBRACKET        reduce using rule 61 (invocacion -> ID LBRACKET argumentos RBRACKET .)
+    RTCOMMENT       reduce using rule 61 (invocacion -> ID LBRACKET argumentos RBRACKET .)
+    COMMA           reduce using rule 61 (invocacion -> ID LBRACKET argumentos RBRACKET .)
+
+
+state 106
+
+    (64) lista_arg -> lista_arg COMMA . expresion
+    (35) expresion -> . var ASSIGN expresion
+    (36) expresion -> . expresion_negada
+    (37) var -> . ID
+    (38) var -> . ID LTCOMMENT expresion RTCOMMENT
+    (39) expresion_negada -> . NOT LBRACKET expresion_logica RBRACKET
+    (40) expresion_negada -> . expresion_logica
+    (41) expresion_logica -> . expresion_logica AND expresion_simple
+    (42) expresion_logica -> . expresion_logica AND NOT LBRACKET expresion_simple RBRACKET
+    (43) expresion_logica -> . expresion_simple
+    (44) expresion_logica -> . NOT LBRACKET expresion_simple RBRACKET
+    (45) expresion_simple -> . expresion_simple relop expresion_aditiva
+    (46) expresion_simple -> . expresion_aditiva
+    (49) expresion_aditiva -> . expresion_aditiva addop term
+    (50) expresion_aditiva -> . term
+    (53) term -> . term mulop factor
+    (54) term -> . factor
+    (57) factor -> . LBRACKET expresion RBRACKET
+    (58) factor -> . var
+    (59) factor -> . invocacion
+    (60) factor -> . NUM
+    (61) invocacion -> . ID LBRACKET argumentos RBRACKET
+
+    ID              shift and go to state 52
+    NOT             shift and go to state 53
+    LBRACKET        shift and go to state 46
+    NUM             shift and go to state 60
+
+    expresion                      shift and go to state 113
+    var                            shift and go to state 50
+    expresion_negada               shift and go to state 51
+    expresion_logica               shift and go to state 54
+    expresion_simple               shift and go to state 55
+    expresion_aditiva              shift and go to state 56
+    term                           shift and go to state 57
+    factor                         shift and go to state 58
+    invocacion                     shift and go to state 59
+
+state 107
+
+    (44) expresion_logica -> NOT LBRACKET . expresion_simple RBRACKET
+    (45) expresion_simple -> . expresion_simple relop expresion_aditiva
+    (46) expresion_simple -> . expresion_aditiva
+    (49) expresion_aditiva -> . expresion_aditiva addop term
+    (50) expresion_aditiva -> . term
+    (53) term -> . term mulop factor
+    (54) term -> . factor
+    (57) factor -> . LBRACKET expresion RBRACKET
+    (58) factor -> . var
+    (59) factor -> . invocacion
+    (60) factor -> . NUM
+    (37) var -> . ID
+    (38) var -> . ID LTCOMMENT expresion RTCOMMENT
+    (61) invocacion -> . ID LBRACKET argumentos RBRACKET
+
+    LBRACKET        shift and go to state 46
+    NUM             shift and go to state 60
+    ID              shift and go to state 52
+
+    expresion_simple               shift and go to state 114
+    expresion_aditiva              shift and go to state 56
+    term                           shift and go to state 57
+    factor                         shift and go to state 58
+    var                            shift and go to state 96
+    invocacion                     shift and go to state 59
+
+state 108
+
+    (39) expresion_negada -> NOT LBRACKET expresion_logica RBRACKET .
+
+    SEMICOLON       reduce using rule 39 (expresion_negada -> NOT LBRACKET expresion_logica RBRACKET .)
+    RBRACKET        reduce using rule 39 (expresion_negada -> NOT LBRACKET expresion_logica RBRACKET .)
+    RTCOMMENT       reduce using rule 39 (expresion_negada -> NOT LBRACKET expresion_logica RBRACKET .)
+    COMMA           reduce using rule 39 (expresion_negada -> NOT LBRACKET expresion_logica RBRACKET .)
+
+
+state 109
+
+    (44) expresion_logica -> NOT LBRACKET expresion_simple RBRACKET .
+
+    AND             reduce using rule 44 (expresion_logica -> NOT LBRACKET expresion_simple RBRACKET .)
+    SEMICOLON       reduce using rule 44 (expresion_logica -> NOT LBRACKET expresion_simple RBRACKET .)
+    RBRACKET        reduce using rule 44 (expresion_logica -> NOT LBRACKET expresion_simple RBRACKET .)
+    RTCOMMENT       reduce using rule 44 (expresion_logica -> NOT LBRACKET expresion_simple RBRACKET .)
+    COMMA           reduce using rule 44 (expresion_logica -> NOT LBRACKET expresion_simple RBRACKET .)
+
+
+state 110
+
+    (42) expresion_logica -> expresion_logica AND NOT LBRACKET . expresion_simple RBRACKET
+    (45) expresion_simple -> . expresion_simple relop expresion_aditiva
+    (46) expresion_simple -> . expresion_aditiva
+    (49) expresion_aditiva -> . expresion_aditiva addop term
+    (50) expresion_aditiva -> . term
+    (53) term -> . term mulop factor
+    (54) term -> . factor
+    (57) factor -> . LBRACKET expresion RBRACKET
+    (58) factor -> . var
+    (59) factor -> . invocacion
+    (60) factor -> . NUM
+    (37) var -> . ID
+    (38) var -> . ID LTCOMMENT expresion RTCOMMENT
+    (61) invocacion -> . ID LBRACKET argumentos RBRACKET
+
+    LBRACKET        shift and go to state 46
+    NUM             shift and go to state 60
+    ID              shift and go to state 52
+
+    expresion_simple               shift and go to state 115
+    expresion_aditiva              shift and go to state 56
+    term                           shift and go to state 57
+    factor                         shift and go to state 58
+    var                            shift and go to state 96
+    invocacion                     shift and go to state 59
+
+state 111
+
+    (29) sentencia_seleccion -> SI LBRACKET expresion RBRACKET sentencia .
+    (30) sentencia_seleccion -> SI LBRACKET expresion RBRACKET sentencia . SINO sentencia
+
+  ! shift/reduce conflict for SINO resolved as shift
+    RPARENT         reduce using rule 29 (sentencia_seleccion -> SI LBRACKET expresion RBRACKET sentencia .)
+    SEMICOLON       reduce using rule 29 (sentencia_seleccion -> SI LBRACKET expresion RBRACKET sentencia .)
+    LPARENT         reduce using rule 29 (sentencia_seleccion -> SI LBRACKET expresion RBRACKET sentencia .)
+    SI              reduce using rule 29 (sentencia_seleccion -> SI LBRACKET expresion RBRACKET sentencia .)
+    MIENTRAS        reduce using rule 29 (sentencia_seleccion -> SI LBRACKET expresion RBRACKET sentencia .)
+    REP             reduce using rule 29 (sentencia_seleccion -> SI LBRACKET expresion RBRACKET sentencia .)
+    RET             reduce using rule 29 (sentencia_seleccion -> SI LBRACKET expresion RBRACKET sentencia .)
+    ID              reduce using rule 29 (sentencia_seleccion -> SI LBRACKET expresion RBRACKET sentencia .)
+    NOT             reduce using rule 29 (sentencia_seleccion -> SI LBRACKET expresion RBRACKET sentencia .)
+    LBRACKET        reduce using rule 29 (sentencia_seleccion -> SI LBRACKET expresion RBRACKET sentencia .)
+    NUM             reduce using rule 29 (sentencia_seleccion -> SI LBRACKET expresion RBRACKET sentencia .)
+    SINO            shift and go to state 116
+
+  ! SINO            [ reduce using rule 29 (sentencia_seleccion -> SI LBRACKET expresion RBRACKET sentencia .) ]
+
+
+state 112
+
+    (31) sentencia_iteracion -> MIENTRAS LBRACKET expresion RBRACKET sentencia .
+
+    RPARENT         reduce using rule 31 (sentencia_iteracion -> MIENTRAS LBRACKET expresion RBRACKET sentencia .)
+    SEMICOLON       reduce using rule 31 (sentencia_iteracion -> MIENTRAS LBRACKET expresion RBRACKET sentencia .)
+    LPARENT         reduce using rule 31 (sentencia_iteracion -> MIENTRAS LBRACKET expresion RBRACKET sentencia .)
+    SI              reduce using rule 31 (sentencia_iteracion -> MIENTRAS LBRACKET expresion RBRACKET sentencia .)
+    MIENTRAS        reduce using rule 31 (sentencia_iteracion -> MIENTRAS LBRACKET expresion RBRACKET sentencia .)
+    REP             reduce using rule 31 (sentencia_iteracion -> MIENTRAS LBRACKET expresion RBRACKET sentencia .)
+    RET             reduce using rule 31 (sentencia_iteracion -> MIENTRAS LBRACKET expresion RBRACKET sentencia .)
+    ID              reduce using rule 31 (sentencia_iteracion -> MIENTRAS LBRACKET expresion RBRACKET sentencia .)
+    NOT             reduce using rule 31 (sentencia_iteracion -> MIENTRAS LBRACKET expresion RBRACKET sentencia .)
+    LBRACKET        reduce using rule 31 (sentencia_iteracion -> MIENTRAS LBRACKET expresion RBRACKET sentencia .)
+    NUM             reduce using rule 31 (sentencia_iteracion -> MIENTRAS LBRACKET expresion RBRACKET sentencia .)
+    SINO            reduce using rule 31 (sentencia_iteracion -> MIENTRAS LBRACKET expresion RBRACKET sentencia .)
+
+
+state 113
+
+    (64) lista_arg -> lista_arg COMMA expresion .
+
+    COMMA           reduce using rule 64 (lista_arg -> lista_arg COMMA expresion .)
+    RBRACKET        reduce using rule 64 (lista_arg -> lista_arg COMMA expresion .)
+
+
+state 114
+
+    (44) expresion_logica -> NOT LBRACKET expresion_simple . RBRACKET
+    (45) expresion_simple -> expresion_simple . relop expresion_aditiva
+    (47) relop -> . LT
+    (48) relop -> . EQ
+
+    RBRACKET        shift and go to state 109
+    LT              shift and go to state 75
+    EQ              shift and go to state 76
+
+    relop                          shift and go to state 74
+
+state 115
+
+    (42) expresion_logica -> expresion_logica AND NOT LBRACKET expresion_simple . RBRACKET
+    (45) expresion_simple -> expresion_simple . relop expresion_aditiva
+    (47) relop -> . LT
+    (48) relop -> . EQ
+
+    RBRACKET        shift and go to state 117
+    LT              shift and go to state 75
+    EQ              shift and go to state 76
+
+    relop                          shift and go to state 74
+
+state 116
+
+    (30) sentencia_seleccion -> SI LBRACKET expresion RBRACKET sentencia SINO . sentencia
+    (22) sentencia -> . sentencia_expr
+    (23) sentencia -> . sentencia_comp
+    (24) sentencia -> . sentencia_seleccion
+    (25) sentencia -> . sentencia_iteracion
+    (26) sentencia -> . sentencia_retorno
+    (27) sentencia_expr -> . expresion SEMICOLON
+    (28) sentencia_expr -> . SEMICOLON
+    (17) sentencia_comp -> . LPARENT declaraciones_locales lista_sentencias RPARENT
+    (29) sentencia_seleccion -> . SI LBRACKET expresion RBRACKET sentencia
+    (30) sentencia_seleccion -> . SI LBRACKET expresion RBRACKET sentencia SINO sentencia
+    (31) sentencia_iteracion -> . MIENTRAS LBRACKET expresion RBRACKET sentencia
+    (32) sentencia_iteracion -> . REP sentencia_comp
+    (33) sentencia_retorno -> . RET SEMICOLON
+    (34) sentencia_retorno -> . RET expresion SEMICOLON
+    (35) expresion -> . var ASSIGN expresion
+    (36) expresion -> . expresion_negada
+    (37) var -> . ID
+    (38) var -> . ID LTCOMMENT expresion RTCOMMENT
+    (39) expresion_negada -> . NOT LBRACKET expresion_logica RBRACKET
+    (40) expresion_negada -> . expresion_logica
+    (41) expresion_logica -> . expresion_logica AND expresion_simple
+    (42) expresion_logica -> . expresion_logica AND NOT LBRACKET expresion_simple RBRACKET
+    (43) expresion_logica -> . expresion_simple
+    (44) expresion_logica -> . NOT LBRACKET expresion_simple RBRACKET
+    (45) expresion_simple -> . expresion_simple relop expresion_aditiva
+    (46) expresion_simple -> . expresion_aditiva
+    (49) expresion_aditiva -> . expresion_aditiva addop term
+    (50) expresion_aditiva -> . term
+    (53) term -> . term mulop factor
+    (54) term -> . factor
+    (57) factor -> . LBRACKET expresion RBRACKET
+    (58) factor -> . var
+    (59) factor -> . invocacion
+    (60) factor -> . NUM
+    (61) invocacion -> . ID LBRACKET argumentos RBRACKET
+
+    SEMICOLON       shift and go to state 44
+    LPARENT         shift and go to state 27
+    SI              shift and go to state 45
+    MIENTRAS        shift and go to state 47
+    REP             shift and go to state 48
+    RET             shift and go to state 49
+    ID              shift and go to state 52
+    NOT             shift and go to state 53
+    LBRACKET        shift and go to state 46
+    NUM             shift and go to state 60
+
+    expresion                      shift and go to state 43
+    sentencia                      shift and go to state 118
+    sentencia_expr                 shift and go to state 38
+    sentencia_comp                 shift and go to state 39
+    sentencia_seleccion            shift and go to state 40
+    sentencia_iteracion            shift and go to state 41
+    sentencia_retorno              shift and go to state 42
+    var                            shift and go to state 50
+    expresion_negada               shift and go to state 51
+    expresion_logica               shift and go to state 54
+    expresion_simple               shift and go to state 55
+    expresion_aditiva              shift and go to state 56
+    term                           shift and go to state 57
+    factor                         shift and go to state 58
+    invocacion                     shift and go to state 59
+
+state 117
+
+    (42) expresion_logica -> expresion_logica AND NOT LBRACKET expresion_simple RBRACKET .
+
+    AND             reduce using rule 42 (expresion_logica -> expresion_logica AND NOT LBRACKET expresion_simple RBRACKET .)
+    SEMICOLON       reduce using rule 42 (expresion_logica -> expresion_logica AND NOT LBRACKET expresion_simple RBRACKET .)
+    RBRACKET        reduce using rule 42 (expresion_logica -> expresion_logica AND NOT LBRACKET expresion_simple RBRACKET .)
+    RTCOMMENT       reduce using rule 42 (expresion_logica -> expresion_logica AND NOT LBRACKET expresion_simple RBRACKET .)
+    COMMA           reduce using rule 42 (expresion_logica -> expresion_logica AND NOT LBRACKET expresion_simple RBRACKET .)
+
+
+state 118
+
+    (30) sentencia_seleccion -> SI LBRACKET expresion RBRACKET sentencia SINO sentencia .
+
+    RPARENT         reduce using rule 30 (sentencia_seleccion -> SI LBRACKET expresion RBRACKET sentencia SINO sentencia .)
+    SEMICOLON       reduce using rule 30 (sentencia_seleccion -> SI LBRACKET expresion RBRACKET sentencia SINO sentencia .)
+    LPARENT         reduce using rule 30 (sentencia_seleccion -> SI LBRACKET expresion RBRACKET sentencia SINO sentencia .)
+    SI              reduce using rule 30 (sentencia_seleccion -> SI LBRACKET expresion RBRACKET sentencia SINO sentencia .)
+    MIENTRAS        reduce using rule 30 (sentencia_seleccion -> SI LBRACKET expresion RBRACKET sentencia SINO sentencia .)
+    REP             reduce using rule 30 (sentencia_seleccion -> SI LBRACKET expresion RBRACKET sentencia SINO sentencia .)
+    RET             reduce using rule 30 (sentencia_seleccion -> SI LBRACKET expresion RBRACKET sentencia SINO sentencia .)
+    ID              reduce using rule 30 (sentencia_seleccion -> SI LBRACKET expresion RBRACKET sentencia SINO sentencia .)
+    NOT             reduce using rule 30 (sentencia_seleccion -> SI LBRACKET expresion RBRACKET sentencia SINO sentencia .)
+    LBRACKET        reduce using rule 30 (sentencia_seleccion -> SI LBRACKET expresion RBRACKET sentencia SINO sentencia .)
+    NUM             reduce using rule 30 (sentencia_seleccion -> SI LBRACKET expresion RBRACKET sentencia SINO sentencia .)
+    SINO            reduce using rule 30 (sentencia_seleccion -> SI LBRACKET expresion RBRACKET sentencia SINO sentencia .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for RBRACKET in state 95 resolved as shift
+WARNING: shift/reduce conflict for SINO in state 111 resolved as shift
