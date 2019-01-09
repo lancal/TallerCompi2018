@@ -780,8 +780,6 @@ class nodoVacio():
 
     def __init__(self):
 
-
-
         self.nombre = 'vacio'
         self.errorColor = None
 

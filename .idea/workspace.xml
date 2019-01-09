@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="be2dad44-c57c-445c-a082-8aa2a458a8e4" name="Default Changelist" comment="" />
+    <list default="true" id="be2dad44-c57c-445c-a082-8aa2a458a8e4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/nodos.py" beforeDir="false" afterPath="$PROJECT_DIR$/nodos.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nodos.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="782" selection-start-line="782" selection-end-line="782" />
+            <state relative-caret-position="278">
+              <caret line="780" column="23" selection-start-line="780" selection-start-column="23" selection-end-line="780" selection-end-column="23" />
               <folding>
                 <element signature="e#1#27#0" expanded="true" />
               </folding>
@@ -47,7 +49,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tree.dot">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="361">
@@ -228,12 +230,12 @@
       <workItem from="1547016050206" duration="1159000" />
       <workItem from="1547017678327" duration="498000" />
       <workItem from="1547018260537" duration="6856000" />
-      <workItem from="1547025477410" duration="927000" />
+      <workItem from="1547025477410" duration="1143000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="153191000" />
+    <option name="totallyTimeSpent" value="153407000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -413,16 +415,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nodos.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="782" selection-start-line="782" selection-end-line="782" />
-          <folding>
-            <element signature="e#1#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scanner.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -434,6 +426,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
           <caret line="168" selection-start-line="168" selection-end-line="168" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nodos.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="780" column="23" selection-start-line="780" selection-start-column="23" selection-end-line="780" selection-end-column="23" />
+          <folding>
+            <element signature="e#1#27#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
